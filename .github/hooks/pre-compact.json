@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "PreCompact": [
+      {
+        "type": "command",
+        "command": "bash .github/hooks/scripts/pre-compact.sh",
+        "timeout": 15
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+name: Copilot Brain Bootstrap CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  # ── Static Analysis (fast, ubuntu-only) ─────────────────────────
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          severity: warning
+
+  links:
+    name: Documentation Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --offline
+            --no-progress
+            --include-fragments
+            '*.md'
+            'claude/**/*.md'
+            '.github/**/*.md'
+          fail: true
+
+  # ── Cross-Platform Validation (all 3 OS) ────────────────────────
+  validate:
+    name: Validate (${{ matrix.os }})
+    needs: [shellcheck]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq (Windows)
+        if: runner.os == 'Windows'
+        run: choco install jq -y
+        shell: powershell
+
+      - name: Verify tools
+        shell: bash
+        run: |
+          echo "bash: $(bash --version | head -1)"
+          echo "jq:   $(jq --version 2>&1)"
+          echo "git:  $(git --version)"
+
+      - name: Syntax check all scripts
+        shell: bash
+        run: |
+          FAIL=0
+          while IFS= read -r -d '' f; do
+            if ! bash -n "${f}" 2>/dev/null; then
+              echo "FAIL: ${f}"
+              bash -n "${f}"
+              FAIL=1
+            fi
+          done < <(find . -name '*.sh' -not -path './.git/*' -print0)
+          exit ${FAIL}
+
+      - name: Validate bootstrap structure
+        shell: bash
+        run: bash validate.sh
+
+      - name: Check hook scripts are executable
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          NOT_EXEC=$(find .github/hooks/scripts -name '*.sh' -not -executable 2>/dev/null | wc -l | tr -d ' ')
+          if [[ "${NOT_EXEC}" -gt 0 ]]; then
+            echo "❌ ${NOT_EXEC} hook script(s) not executable"
+            exit 1
+          fi
+          echo "✅ All hook scripts are executable"
+
+      - name: Validate skill name frontmatter
+        shell: bash
+        run: |
+          ERRORS=0
+          while IFS= read -r -d '' SKILL_FILE; do
+            DIR_NAME=$(basename "$(dirname "${SKILL_FILE}")")
+            FRONTMATTER_NAME=$(grep -m1 '^name:' "${SKILL_FILE}" 2>/dev/null | sed 's/^name:[[:space:]]*//' | tr -d '"' || echo "")
+            if [[ "${FRONTMATTER_NAME}" != "${DIR_NAME}" ]]; then
+              echo "❌ Skill name mismatch: ${DIR_NAME}/ declares name: '${FRONTMATTER_NAME}'"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done < <(find .github/skills -name 'SKILL.md' -print0 2>/dev/null)
+          if [[ "${ERRORS}" -gt 0 ]]; then
+            exit 1
+          fi
+          echo "✅ All skill names match directory names"
+
+      - name: Check for placeholder tokens in README
+        shell: bash
+        run: |
+          OUTPUT=$(grep -c '{{' README.md 2>/dev/null || echo "0")
+          if [[ "${OUTPUT}" -gt 0 ]]; then
+            echo "Warning: ${OUTPUT} placeholder(s) found in README.md"
+          fi
+
+  # ── Integration Test (FRESH install into temp dir) ──────────────
+  integration:
+    name: Integration (${{ matrix.os }})
+    needs: [shellcheck]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq (Windows)
+        if: runner.os == 'Windows'
+        run: choco install jq -y
+        shell: powershell
+
+      - name: Configure git
+        shell: bash
+        run: |
+          git config --global user.email "ci@test.com"
+          git config --global user.name "CI"
+
+      - name: Fresh install into temp dir
+        shell: bash
+        run: |
+          TMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'copilot-brain-test')
+          cd "${TMPDIR}"
+          git init
+          git commit --allow-empty -m "test: init"
+          bash "${GITHUB_WORKSPACE}/install.sh" "${TMPDIR}"
+          bash "${TMPDIR}/validate.sh"

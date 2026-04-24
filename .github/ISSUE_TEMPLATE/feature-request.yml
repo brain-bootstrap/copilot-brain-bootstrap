@@ -1,0 +1,54 @@
+---
+name: Feature Request
+description: Suggest a new feature or improvement to Copilot Brain Bootstrap
+labels: ['enhancement', 'needs-triage']
+---
+
+name: Feature Request
+description: Suggest a new prompt, skill, agent, or improvement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please describe the problem you're trying to solve.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this feature solve? (user story format preferred)
+      placeholder: "As a developer using Copilot, I want... so that..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Feature type
+      options:
+        - New prompt
+        - New skill
+        - New agent
+        - New hook
+        - New instruction
+        - Improvement to existing file
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How would you implement this?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What alternatives did you consider?
+    validations:
+      required: false

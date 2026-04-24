@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "SubagentStop": [
+      {
+        "type": "command",
+        "command": "bash .github/hooks/scripts/subagent-stop.sh",
+        "timeout": 10
+      }
+    ]
+  }
+}

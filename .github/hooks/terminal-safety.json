@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "bash .github/hooks/scripts/terminal-safety.sh",
+        "timeout": 10,
+        "tools": ["run_in_terminal"]
+      }
+    ]
+  }
+}

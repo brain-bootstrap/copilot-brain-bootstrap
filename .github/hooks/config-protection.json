@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "bash .github/hooks/scripts/config-protection.sh",
+        "timeout": 10,
+        "tools": ["replace_string_in_file", "create_file", "edit_notebook_file"]
+      }
+    ]
+  }
+}

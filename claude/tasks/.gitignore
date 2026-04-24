@@ -1,0 +1,5 @@
+session-logs/
+*.tmp
+.tdd-*
+.bootstrap-progress*
+.pre-compact-snapshot.md
