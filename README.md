@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/brain-bootstrap/copilot-brain-bootstrap">
-    <img src="https://img.shields.io/badge/ᗺB-Brain%20Bootstrap-6e40c9?style=for-the-badge&labelColor=1a0a3e" alt="ᗺB Brain Bootstrap" />
+  <a href="https://github.com/brain-bootstrap">
+    <img src="https://raw.githubusercontent.com/brain-bootstrap/.github/main/profile/brain-bootstrap-logo.svg" alt="Brain Bootstrap" width="480" />
   </a>
 </p>
 
