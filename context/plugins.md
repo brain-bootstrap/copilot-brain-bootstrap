@@ -4,12 +4,12 @@
 
 ## Available Plugin Categories
 
-| Category        | Plugin            | Status                           | Purpose                     |
-| --------------- | ----------------- | -------------------------------- | --------------------------- |
-| Code indexing   | CocoIndex         | <!-- installed/not-installed --> | Structural code queries     |
-| Knowledge graph | Code Review Graph | <!-- installed/not-installed --> | Architectural visualization |
-| Language server | Serena            | <!-- installed/not-installed --> | Semantic code navigation    |
-| Testing         | Playwright        | <!-- installed/not-installed --> | E2E browser automation      |
+| Category        | Plugin            | Status                           | Purpose                  |
+| --------------- | ----------------- | -------------------------------- | ------------------------ |
+| Code indexing   | CocoIndex         | <!-- installed/not-installed --> | Structural code queries  |
+| Code review     | Code Review Graph | <!-- installed/not-installed --> | Change risk analysis     |
+| Language server | Serena            | <!-- installed/not-installed --> | Semantic code navigation |
+| Testing         | Playwright        | <!-- installed/not-installed --> | E2E browser automation   |
 
 ## Plugin Configuration
 
@@ -19,9 +19,9 @@
 - Purpose: Query your codebase structure — find all callers of a function, trace a data flow, understand module boundaries.
 - Skill: `/cocoindex-code`
 
-### Code Review Graph (Architecture Visualization)
+### Code Review Graph (Change Risk Analysis)
 
-- Purpose: Generate dependency graphs, identify circular dependencies, spot architectural drift.
+- Purpose: Detect blast radius, risk score 0–100, and breaking changes from git diffs. Pre-PR safety gate.
 - Skill: `/code-review-graph`
 
 ### Serena (Semantic Code Navigation)

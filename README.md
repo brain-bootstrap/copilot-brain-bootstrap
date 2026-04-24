@@ -6,7 +6,7 @@
 
 <h1 align="center">ᗺB - Brain Bootstrap for GitHub Copilot</h1>
 <p align="center"><em>Your AI coding assistant is brilliant.<br>It just forgets everything, ignores your rules, and breaks your conventions.<br><strong>Brain doesn't hope Copilot behaves — it makes it. Permanently.</strong></em></p>
-<p align="center"><sub>by <a href="https://github.com/y-abs">y-abs</a> · no third-party installs without your explicit approval</sub></p>
+<p align="center"><sub>by <a href="https://github.com/brain-bootstrap">brain-bootstrap</a> · no third-party installs without your explicit approval</sub></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
   <a href="https://github.com/brain-bootstrap/copilot-brain-bootstrap/actions/workflows/ci.yml"><img src="https://github.com/brain-bootstrap/copilot-brain-bootstrap/actions/workflows/ci.yml/badge.svg" alt="CI"></a>

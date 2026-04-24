@@ -28,7 +28,7 @@ Copilot Brain Bootstrap is a **production-grade scaffolding system** for GitHub 
 
 ```bash
 # Install into your project
-bash <(curl -fsSL https://raw.githubusercontent.com/y-abs/copilot-brain-bootstrap/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/brain-bootstrap/copilot-brain-bootstrap/main/install.sh)
 
 # Validate installation
 bash validate.sh
