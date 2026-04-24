@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of Copilot Brain Bootstrap
 - `.github/copilot-instructions.md` — main template, always injected by Copilot
 - 5 custom agents: reviewer, researcher, plan-challenger, security-auditor, session-reviewer
-- 8 lifecycle hooks with scripts: session-context, terminal-safety, config-protection, quality-gate, pre-commit-quality, subagent-stop, pre-compact and more
+- 7 lifecycle hooks with scripts: session-context, terminal-safety, config-protection, quality-gate, pre-commit-quality, subagent-stop, pre-compact
 - 38 prompt files for common tasks
 - 18 skills including tdd, root-cause-trace, brainstorming, careful, cross-layer-check
 - 9 path-specific instruction files
