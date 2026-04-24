@@ -9,6 +9,29 @@
 
 ---
 
+## Step 0: Pre-Upgrade Safety Backup
+
+`install.sh` creates a backup automatically before touching anything. Verify it exists:
+
+```bash
+ls -lh context/tasks/.pre-upgrade-backup.tar.gz 2>/dev/null && echo "✅ Backup exists" || echo "⚠️  No backup found"
+```
+
+If no backup exists (you copied files manually without `install.sh`), create one now:
+
+```bash
+tar czf context/tasks/.pre-upgrade-backup.tar.gz .github/copilot-instructions.md context/ 2>/dev/null || true
+echo "✅ Pre-upgrade backup saved"
+```
+
+Restore at any time:
+
+```bash
+tar xzf context/tasks/.pre-upgrade-backup.tar.gz
+```
+
+---
+
 ## Step A: Inventory Existing Content
 
 Read all existing context files in parallel to understand what's already there:
@@ -72,13 +95,24 @@ For domain docs that exist but are sparse (fewer than 5 real patterns), enrich t
 After all changes, confirm:
 
 ```bash
-# No user-written content was removed (lessons, todos, domain docs)
+# Capture line counts BEFORE making any edits (run this at the start of Phase 2)
+# then re-run here to verify counts are >= pre-upgrade counts
 wc -l context/tasks/lessons.md context/tasks/todo.md 2>/dev/null
+```
 
+**Required checks:**
+
+- [ ] `context/tasks/lessons.md` line count is **≥ pre-upgrade count** (data never removed)
+- [ ] `context/tasks/todo.md` line count is **≥ pre-upgrade count**
+- [ ] All custom domain docs (`context/*.md` you created) still exist and are unchanged
+- [ ] `.github/instructions/` files were NOT modified (they are user-customized — never touch)
+- [ ] `.github/copilot-instructions.md` has all your original content plus any newly merged sections
+
+```bash
 # Validate structure
 bash validate.sh 2>&1
 ```
 
-**Phase 2 is complete when validate.sh passes.**
+**Phase 2 is complete when validate.sh passes and all checkboxes are checked.**
 
 Return to `context/bootstrap/PROMPT.md` → Phase 3.

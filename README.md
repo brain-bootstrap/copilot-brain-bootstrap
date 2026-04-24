@@ -257,14 +257,15 @@ Security isn't one mechanism — it's **two layers** working together:
 
 ## 🔌 Plugin Ecosystem
 
-Four VS Code / MCP plugins available — pick what fits your stack. Install via `/mcp` prompt:
+Five VS Code / MCP plugins available — pick what fits your stack. Install via `/mcp` prompt:
 
-| Tool                                                                       | Axis                                                                       |   Requires   |            Impact            |
-| :------------------------------------------------------------------------- | :------------------------------------------------------------------------- | :----------: | :--------------------------: |
-| **[code-review-graph](https://github.com/tirth8205/code-review-graph)**    | 🔴 Change risk analysis — risk score 0–100, blast radius, breaking changes | Python 3.10+ |      Pre-PR safety gate      |
-| **[codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** | 🔍 Live structural graph — call traces, dead code, Cypher queries          |     curl     |  Fewer tokens vs file reads  |
-| **[cocoindex-code](https://github.com/cocoindex-io/cocoindex-code)**       | 🔎 Semantic search — find code by meaning via local vector embeddings      | Python 3.11+ |    Finds what grep misses    |
-| **[serena](https://github.com/oraios/serena)**                             | 🔧 LSP symbol refactoring — rename/move across entire codebase atomically  | uvx + Python | Atomic multi-file transforms |
+| Tool                                                                       | Axis                                                                       |   Requires   |            Impact             |
+| :------------------------------------------------------------------------- | :------------------------------------------------------------------------- | :----------: | :---------------------------: |
+| **[code-review-graph](https://github.com/tirth8205/code-review-graph)**    | 🔴 Change risk analysis — risk score 0–100, blast radius, breaking changes | Python 3.10+ |      Pre-PR safety gate       |
+| **[codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** | 🔍 Live structural graph — call traces, dead code, Cypher queries          |     curl     |  Fewer tokens vs file reads   |
+| **[cocoindex-code](https://github.com/cocoindex-io/cocoindex-code)**       | 🔎 Semantic search — find code by meaning via local vector embeddings      | Python 3.11+ |    Finds what grep misses     |
+| **[serena](https://github.com/oraios/serena)**                             | 🔧 LSP symbol refactoring — rename/move across entire codebase atomically  | uvx + Python | Atomic multi-file transforms  |
+| **[playwright](https://github.com/microsoft/playwright-mcp)**              | 🌐 Browser automation — navigate, click, fill, snapshot web pages          | Node.js 18+  | Replaces manual browser steps |
 
 > 📚 **Full plugin reference:** [context/plugins.md](context/plugins.md)
 

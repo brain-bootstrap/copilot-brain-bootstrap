@@ -191,12 +191,20 @@ Add project-specific rules discovered. Look for:
 
 #### 3.6 `context/plugins.md`
 
-Set each plugin to `ENABLED` or `DISABLED` based on detection:
+> **Copilot-specific:** These are **MCP servers** (not Claude plugins). Detection checks `.mcp.json` and known config directories.
 
 ```bash
-ls -la .cocoindex_code/ .serena/ 2>/dev/null
-find . -maxdepth 2 -name 'playwright.config.*' 2>/dev/null
+# Check for .mcp.json — VS Code Copilot MCP configuration
+cat .mcp.json 2>/dev/null | head -40 || echo "No .mcp.json found — MCP tools not configured"
+
+# Check Serena project config
+ls -la .serena/ 2>/dev/null && echo "Serena: project.yml found" || echo "Serena: not configured"
+
+# Check Playwright test config
+find . -maxdepth 2 -name 'playwright.config.*' 2>/dev/null | head -3
 ```
+
+For each tool: set status to `installed` (in `.mcp.json`) or `not-installed` in `context/plugins.md`. Do NOT use "ENABLED/DISABLED" — that's Claude plugin terminology.
 
 ---
 
@@ -208,36 +216,112 @@ find . -maxdepth 2 -name 'playwright.config.*' 2>/dev/null
 
 ```bash
 # Messaging (Kafka/RabbitMQ/SQS/NATS)
-grep -rl 'KafkaConsumer\|KafkaProducer\|createTopic\|RabbitMQ\|SQSClient\|NATS\|publishMessage' . --include='*.js' --include='*.ts' 2>/dev/null | head -5 || true
+grep -rl 'KafkaConsumer\|KafkaProducer\|createTopic\|RabbitMQ\|SQSClient\|NATS\|publishMessage' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
 # DB / multi-connection
-grep -rl 'knex\|\.db\.\|createConnection\|getRepository\|DataSource\|prisma\.' . --include='*.js' --include='*.ts' 2>/dev/null | head -5 || true
+grep -rl 'knex\|\.db\.\|createConnection\|getRepository\|DataSource\|prisma\.' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
 # State machine / lifecycle
-grep -rl 'StatusCode\|StatusEnum\|\.state\b\|transition\|workflow.*state\|state.*machine' . --include='*.js' --include='*.ts' 2>/dev/null | head -5 || true
+grep -rl 'StatusCode\|StatusEnum\|\.state\b\|transition\|workflow.*state\|state.*machine' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
 # Auth / identity
-grep -rl 'keycloak\|realm\|grant_type\|jwt\|bearer\|guard\|protect\|token.*verify' . --include='*.js' --include='*.ts' 2>/dev/null | head -5 || true
+grep -rl 'keycloak\|realm\|grant_type\|jwt\|bearer\|guard\|protect\|token.*verify' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
 # Webhooks / callbacks
-grep -rl 'onConflict\|delivery.*id\|idempotent\|webhook.*url\|callback.*endpoint' . --include='*.js' --include='*.ts' 2>/dev/null | head -5 || true
+grep -rl 'onConflict\|delivery.*id\|idempotent\|webhook.*url\|callback.*endpoint' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
 # API / HTTP layer
-grep -rl 'router\.\|app\.get\|app\.post\|fastify\|express\|koa\|hono' . --include='*.js' --include='*.ts' 2>/dev/null | head -5 || true
+grep -rl 'router\.\|app\.get\|app\.post\|fastify\|express\|koa\|hono\|flask\|fastapi\|django' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
+# Adapters / external integrations
+grep -rl 'adapter\|Adapter\|BaseAdapter\|ApiClient\|integration\|ExternalAPI' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
+# Reporting / analytics
+grep -rl 'report\|Report\|aggregate\|export.*data\|analytics\|xlsx\|csv.*export' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
+# User onboarding / registration
+grep -rl 'signup\|SignUp\|onboard\|registration.*flow\|multi.*step.*form\|identity.*verif' . --include='*.js' --include='*.ts' --include='*.py' 2>/dev/null | head -5 || true
 ```
 
-For each domain with hits: read 2–3 actual source files, then create `context/<domain>.md` with REAL patterns. Update `{{CRITICAL_PATTERNS}}` in `.github/copilot-instructions.md` with 3–5 rules that are specific to THIS codebase.
+For each domain with hits: read 2–3 actual source files, then create `context/<domain>.md` with REAL patterns. Update `{{CRITICAL_PATTERNS}}` in `.github/copilot-instructions.md` with 3–5 rules specific to THIS codebase.
+
+**Detection → doc name mapping** (signals → create if found):
+
+- Messaging → `context/messaging.md`
+- DB / multi-connection → `context/database.md`
+- State machine / lifecycle → `context/lifecycle.md`
+- Auth / identity → `context/auth.md`
+- Webhooks / callbacks → `context/webhooks.md`
+- API / HTTP → `context/api.md`
+- Adapters → `context/adapters.md`
+- Reporting / analytics → `context/reporting.md`
+- User onboarding → `context/enrollment.md`
 
 **Depth rule**: A 20-line doc with 3 real patterns beats 100 lines of filler.
+
+**Copilot-specific**: For each domain doc created, also consider creating a matching `.github/instructions/<domain>.instructions.md` with an `applyTo:` glob scoped to that domain’s source paths. This auto-injects context into every Copilot interaction involving those files without consuming prompt budget.
+
+---
+
+### Phase 4.5: MCP Extension Suggestions (note in report only)
+
+> **Do NOT configure extensions during bootstrap.** Scan detected stack for Copilot-relevant suggestions to add to the final report.
+
+- `DATABASE` detected → suggest database MCP extension or Copilot workspace query
+- CI/CD detected → suggest GitHub Actions Copilot integration
+- Frontend detected → suggest browser DevTools or accessibility tools
+
+---
+
+### ⚠️ Mandatory Completion Check Before Phase 5
+
+Before proceeding to validate and report, self-check:
+
+- [ ] Every `{{PLACEHOLDER}}` in `.github/copilot-instructions.md` is filled with a real value
+- [ ] Every `{{PLACEHOLDER}}` in `context/architecture.md`, `context/build.md`, `context/rules.md`, `context/plugins.md` is filled
+- [ ] At least one domain doc (`context/<domain>.md`) created for each detected domain
+- [ ] `{{CRITICAL_PATTERNS}}` in `copilot-instructions.md` contains 3–5 REAL project-specific rules (not generic advice)
+- [ ] `context/architecture.md` has a real service catalog (not `{{DIR_1}}` tokens)
+- [ ] `context/build.md` build/test/lint commands are verified against actual `package.json`/`Makefile`
+
+**If any box is unchecked: fix it before Phase 5.** Do not generate a report over an incomplete bootstrap.
 
 ---
 
 ### Phase 5: Validate + Report
 
-Run validation:
+> 🧠 **The report is the user's first impression of the bootstrap.** Enthusiastic, specific, emoji-rich — not clinical.
 
 ```bash
 bash validate.sh 2>&1
 ```
 
-Then read `context/bootstrap/REFERENCE.md` for the report template. Fill in ALL fields and present the final report to the user.
+**If failures remain**: fix immediately, re-run. Do not proceed until clean.
 
-**Do NOT commit.** Present the summary and wait for user confirmation.
+Read the report template:
+
+```bash
+# (read_file tool — do NOT cat, it consumes too much context)
+read_file context/bootstrap/REFERENCE.md
+```
+
+Write the full report (FRESH INSTALL or UPGRADE template) to `context/tasks/bootstrap-report.md` and present it to the user.
+
+**Collaboration mode** — default: TEAM (committed, shared with team). Include in report:
+
+```
+🤝 Mode: TEAM (default)
+   → Commit: git add context/ .github/copilot-instructions.md .github/prompts/ .github/agents/ .github/skills/ .github/hooks/ .github/instructions/
+   → Switch to SOLO later: echo -e '\ncontext/\n.github/copilot-instructions.md' >> .gitignore
+```
+
+**Do NOT commit autonomously.** Present the summary and wait for user confirmation.
+
+---
+
+### Performance Budget
+
+> **AI-work-only times.** Wall-clock includes Copilot reasoning overhead and tool latency (~2–5s each). Expect ~2× wall-clock multiplier.
+
+- **Phase 1 (Discovery):** ~30s (manual finds + parallel reads)
+- **Phase 2 (Smart Merge):** ~1–3 min (UPGRADE only)
+- **Phase 3 (Fill Placeholders):** ~3–5 min (6 files + real values)
+- **Phase 4 (Domain Detection):** ~3–5 min (greps + domain docs)
+- **Phase 4.5 (MCP Suggestions):** ~10s
+- **Phase 5 (Validate + Report):** ~30s
+- **AI-work total: ~7–13 min** · **Wall-clock total: ~10–18 min**
 
 ---
 
