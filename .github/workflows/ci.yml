@@ -33,7 +33,7 @@ jobs:
             --offline
             --no-progress
             '*.md'
-            'claude/**/*.md'
+            'context/**/*.md'
             '.github/**/*.md'
           fail: true
 

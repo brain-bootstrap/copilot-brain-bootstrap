@@ -10,7 +10,7 @@ tools:
 argument-hint: '[branch or PR to review — default: current branch vs main]'
 ---
 
-Read `claude/tasks/lessons.md` and `claude/rules.md` first.
+Read `context/tasks/lessons.md` and `context/rules.md` first.
 
 ## Review Protocol
 

@@ -1,23 +1,23 @@
 # GitHub Copilot — {{PROJECT_NAME}} Instructions
 
 > Auto-injected with every Copilot interaction. Budget: <4KB.
-> Deep knowledge in `claude/*.md` — read them via `read_file` tool.
+> Deep knowledge in `context/*.md` — read them via `read_file` tool.
 
 ## ⚠️ Mandatory Reads
 
-**Session start →** read `claude/tasks/todo.md` + `claude/tasks/lessons.md`.
+**Session start →** read `context/tasks/todo.md` + `context/tasks/lessons.md`.
 
 | Task involves… | Read FIRST |
 | --- | --- |
-| _anything_ (first) | `claude/tasks/todo.md` + `claude/tasks/lessons.md` + `claude/architecture.md` + `claude/rules.md` |
-| build / test / lint | `claude/build.md` |
-| MR/PR, ticket | `claude/templates.md` |
-| terminal, shell | `claude/terminal-safety.md` |
-| CVE, dependency | `claude/cve-policy.md` |
+| _anything_ (first) | `context/tasks/todo.md` + `context/tasks/lessons.md` + `context/architecture.md` + `context/rules.md` |
+| build / test / lint | `context/build.md` |
+| MR/PR, ticket | `context/templates.md` |
+| terminal, shell | `context/terminal-safety.md` |
+| CVE, dependency | `context/cve-policy.md` |
 
 ## Golden Rules
 
-1. **Never skip planning** — `claude/tasks/todo.md` before non-trivial tasks (3+ steps).
+1. **Never skip planning** — `context/tasks/todo.md` before non-trivial tasks (3+ steps).
 2. **Never allow cross-layer inconsistency** — grep new fields across all layers.
 3. **Never invent a pattern** — read existing files first, match conventions.
 4. **Never mark complete without proof** — run tests, check logs.
@@ -25,10 +25,10 @@
 
 ## Operating Protocol
 
-1. **Plan first** — `claude/tasks/todo.md` with checkable items.
+1. **Plan first** — `context/tasks/todo.md` with checkable items.
 2. **Prove completion** — run tests, check logs.
 3. **Fix bugs autonomously** — don't ask, just fix.
-4. **Maintain knowledge** — update stale `claude/*.md` after every domain touch.
+4. **Maintain knowledge** — update stale `context/*.md` after every domain touch.
 
 ## Agents · Prompts · Skills
 
@@ -47,11 +47,11 @@
 
 ## 🚨 Exit Checklist (MANDATORY before ending turn)
 
-1. User corrected me? → Update `claude/tasks/lessons.md` + relevant `claude/*.md`
+1. User corrected me? → Update `context/tasks/lessons.md` + relevant `context/*.md`
 2. Learned something new? → Same
-3. Open task? → Mark progress in `claude/tasks/todo.md`
-4. Touched a domain? → Verify `claude/*.md` still accurate
-5. New pattern? → Add to relevant doc + `claude/tasks/lessons.md`
+3. Open task? → Mark progress in `context/tasks/todo.md`
+4. Touched a domain? → Verify `context/*.md` still accurate
+5. New pattern? → Add to relevant doc + `context/tasks/lessons.md`
 
 ## Terminal Safety (CRITICAL — #1 cause of hangs)
 
@@ -64,7 +64,7 @@
 ## Critical Patterns
 
 - **NEVER `git push` autonomously** — present summary, wait for confirmation
-- **Temp files in `./claude/tasks/`**, never `/tmp/`
+- **Temp files in `./context/tasks/`**, never `/tmp/`
 - **All proofs must pass** before generating MR description
 - **NEVER modify IDE config files** unless explicitly asked
 <!-- {{CRITICAL_PATTERNS}} -->

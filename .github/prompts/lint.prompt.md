@@ -1,5 +1,5 @@
 ---
-description: 'Run lint + format checks. Read claude/build.md for lint commands. Report violations. Auto-fix if requested.'
+description: 'Run lint + format checks. Read context/build.md for lint commands. Report violations. Auto-fix if requested.'
 mode: agent
 tools:
   - read_file
@@ -7,7 +7,7 @@ tools:
 argument-hint: '[optional: --fix to auto-fix violations]'
 ---
 
-Read `claude/build.md` first for the exact lint and format commands.
+Read `context/build.md` first for the exact lint and format commands.
 
 ## Lint Protocol
 

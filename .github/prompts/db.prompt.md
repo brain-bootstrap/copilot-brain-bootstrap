@@ -9,7 +9,7 @@ tools:
 argument-hint: '[inspect | migrate | query | rollback]'
 ---
 
-Read `claude/architecture.md` for database connection details and patterns.
+Read `context/architecture.md` for database connection details and patterns.
 
 ## Safety Rules
 

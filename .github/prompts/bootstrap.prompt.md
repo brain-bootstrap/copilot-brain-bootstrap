@@ -15,7 +15,7 @@ You are performing a **full autonomous bootstrap** of this project's AI knowledg
 
 ## Phase A — Read the bootstrap reference
 
-Read `claude/bootstrap/PROMPT.md` if it exists, otherwise proceed with the standard protocol below.
+Read `context/bootstrap/PROMPT.md` if it exists, otherwise proceed with the standard protocol below.
 
 ## Phase B — Discover project structure
 
@@ -29,16 +29,16 @@ Read `claude/bootstrap/PROMPT.md` if it exists, otherwise proceed with the stand
 Replace `{{PROJECT_NAME}}` with the project name.
 Replace `{{CRITICAL_PATTERNS}}` with up to 5 project-specific critical rules discovered during bootstrap.
 
-## Phase D — Fill claude/architecture.md
+## Phase D — Fill context/architecture.md
 
 Replace all `{{DIR_N}}`, `{{SERVICE_N}}`, `{{INFRA_N}}` placeholders with real values discovered.
 
-## Phase E — Fill claude/build.md
+## Phase E — Fill context/build.md
 
 Replace all `{{BUILD_CMD_*}}`, `{{TEST_CMD_*}}`, `{{LINT_*}}` placeholders with real commands.
 Test each command to confirm it works.
 
-## Phase F — Fill claude/cve-policy.md
+## Phase F — Fill context/cve-policy.md
 
 Update the audit commands table to match the detected runtimes.
 
@@ -48,7 +48,7 @@ Check for:
 - `.cocoindex_code/` → enable CocoIndex skill
 - `.serena/` → enable Serena skill
 - `playwright.config.*` → enable Playwright skill
-Update `claude/plugins.md` with detected plugins.
+Update `context/plugins.md` with detected plugins.
 
 ## Phase H — Verify
 

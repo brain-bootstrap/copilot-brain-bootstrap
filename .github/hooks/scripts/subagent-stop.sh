@@ -11,9 +11,9 @@ INPUT=$(cat)
 AGENT_TYPE=$(printf '%s' "${INPUT}" | jq -r '.agent_type // "subagent"' 2>/dev/null || echo "subagent")
 
 MSG="Subagent completed (${AGENT_TYPE}). Exit checklist: "
-MSG+="(1) New codebase discoveries → update claude/tasks/lessons.md. "
-MSG+="(2) Bugs found → record in claude/tasks/COPILOT_ERRORS.md. "
-MSG+="(3) Open todos from this run → update claude/tasks/todo.md."
+MSG+="(1) New codebase discoveries → update context/tasks/lessons.md. "
+MSG+="(2) Bugs found → record in context/tasks/COPILOT_ERRORS.md. "
+MSG+="(3) Open todos from this run → update context/tasks/todo.md."
 
 MSG_ESCAPED=$(printf '%s' "${MSG}" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))' 2>/dev/null \
   || printf '"%s"' "${MSG}")

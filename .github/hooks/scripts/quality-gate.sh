@@ -13,18 +13,18 @@ if [[ "${UNCOMMITTED}" -gt 0 ]]; then
 fi
 
 # ── Unchecked todos ───────────────────────────────────────────────────────────
-if [[ -f "claude/tasks/todo.md" ]]; then
-  OPEN_TODOS=$(grep -c '^\- \[ \]' claude/tasks/todo.md 2>/dev/null || echo "0")
+if [[ -f "context/tasks/todo.md" ]]; then
+  OPEN_TODOS=$(grep -c '^\- \[ \]' context/tasks/todo.md 2>/dev/null || echo "0")
   if [[ "${OPEN_TODOS}" -gt 0 ]]; then
-    WARNINGS+=("⚠️ ${OPEN_TODOS} open todo item(s) in claude/tasks/todo.md — mark complete or defer to next session.")
+    WARNINGS+=("⚠️ ${OPEN_TODOS} open todo item(s) in context/tasks/todo.md — mark complete or defer to next session.")
   fi
 fi
 
 # ── Lessons freshness ─────────────────────────────────────────────────────────
-if [[ -f "claude/tasks/lessons.md" ]]; then
-  LESSONS_MODIFIED=$(git --no-pager log --oneline -1 -- claude/tasks/lessons.md 2>/dev/null || echo "")
+if [[ -f "context/tasks/lessons.md" ]]; then
+  LESSONS_MODIFIED=$(git --no-pager log --oneline -1 -- context/tasks/lessons.md 2>/dev/null || echo "")
   if [[ -z "${LESSONS_MODIFIED}" ]]; then
-    WARNINGS+=("💡 claude/tasks/lessons.md has never been committed — confirm lessons are being captured.")
+    WARNINGS+=("💡 context/tasks/lessons.md has never been committed — confirm lessons are being captured.")
   fi
 fi
 

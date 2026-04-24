@@ -16,10 +16,10 @@ git --no-pager status 2>&1 | head -20
 git --no-pager log --oneline -10 2>&1
 
 # Open todos
-grep -c '^\- \[ \]' claude/tasks/todo.md 2>/dev/null || echo "0 open todos"
+grep -c '^\- \[ \]' context/tasks/todo.md 2>/dev/null || echo "0 open todos"
 ```
 
-Read `claude/tasks/todo.md` and summarize:
+Read `context/tasks/todo.md` and summarize:
 - Branch name
 - Uncommitted files count
 - In-progress task (if any)

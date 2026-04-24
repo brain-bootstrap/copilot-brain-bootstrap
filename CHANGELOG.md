@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 35+ prompt files for common tasks
 - 18+ skills including tdd, root-cause-trace, brainstorming, careful, cross-layer-check
 - 4 path-specific instruction files
-- `claude/` knowledge layer: 8 documentation files + tasks directory
+- `context/` knowledge layer: 8 documentation files + tasks directory
 - `install.sh` — smart fresh/upgrade installer
 - `validate.sh` — post-install validation with ✅/❌ reporting
 - CI pipeline: validate on ubuntu/macos/windows + shellcheck

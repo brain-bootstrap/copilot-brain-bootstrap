@@ -10,7 +10,7 @@ model: ['Claude Opus 4 (copilot)', 'GPT-4o (copilot)']
 handoffs:
   - label: 'Proceed to implementation'
     agent: agent
-    prompt: 'The plan has been challenged and refined. Proceed to implementation per the approved plan in claude/tasks/todo.md.'
+    prompt: 'The plan has been challenged and refined. Proceed to implementation per the approved plan in context/tasks/todo.md.'
     send: false
 ---
 
@@ -22,9 +22,9 @@ Challenge implementation plans BEFORE code is written. Find real risks that woul
 
 ## Mandatory First Steps
 
-1. Read `claude/tasks/lessons.md` — past mistakes are the best source of real risks
-2. Read the plan being challenged (from `claude/tasks/todo.md` or user-provided)
-3. Identify which domains the plan touches → read corresponding `claude/*.md`
+1. Read `context/tasks/lessons.md` — past mistakes are the best source of real risks
+2. Read the plan being challenged (from `context/tasks/todo.md` or user-provided)
+3. Identify which domains the plan touches → read corresponding `context/*.md`
 
 ## Attack Dimensions
 

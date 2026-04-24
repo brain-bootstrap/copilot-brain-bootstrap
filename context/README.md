@@ -1,4 +1,4 @@
-# claude/ Knowledge Layer
+# context/ Knowledge Layer
 
 This directory is the **persistent brain** of your project — structured knowledge that GitHub Copilot (and any AI assistant) reads on demand.
 
@@ -20,10 +20,11 @@ This directory is the **persistent brain** of your project — structured knowle
 
 ## Philosophy: Write Once, Read Everywhere
 
-This knowledge layer is **AI-agnostic**. The same `claude/*.md` files are read by:
+This knowledge layer is **AI-agnostic**. The same `context/*.md` files are read by:
 
 - GitHub Copilot (via `.github/copilot-instructions.md`)
-- Claude Code (via `CLAUDE.md`)
+- Claude Code (via `CLAUDE.md` — if you also use it)
+- Codex (via `AGENTS.md` — if you also use it)
 - Any other AI assistant that can read files
 
 Update a doc once → all your AI assistants are up to date.

@@ -124,4 +124,4 @@ cd /path && command
 
 ## After Any Terminal Issue
 
-Update `claude/terminal-safety.md` + `claude/tasks/lessons.md` immediately.
+Update `context/terminal-safety.md` + `context/tasks/lessons.md` immediately.

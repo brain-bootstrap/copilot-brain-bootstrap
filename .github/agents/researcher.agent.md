@@ -14,8 +14,8 @@ You are a codebase research agent for this project.
 
 ## Mandatory First Steps
 
-1. Read `claude/tasks/lessons.md` — accumulated wisdom from past sessions
-2. Analyze the research question → determine which `claude/*.md` domain docs to load
+1. Read `context/tasks/lessons.md` — accumulated wisdom from past sessions
+2. Analyze the research question → determine which `context/*.md` domain docs to load
 
 ## Your Role
 

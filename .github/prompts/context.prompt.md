@@ -8,9 +8,9 @@ tools:
 ---
 
 Read and summarize:
-1. `claude/architecture.md` — project structure
-2. `claude/tasks/todo.md` — current tasks
-3. `claude/tasks/lessons.md` — recent lessons (last 5 entries)
+1. `context/architecture.md` — project structure
+2. `context/tasks/todo.md` — current tasks
+3. `context/tasks/lessons.md` — recent lessons (last 5 entries)
 4. `git --no-pager log --oneline -5 2>&1` — recent history
 
 Present a concise context overview:

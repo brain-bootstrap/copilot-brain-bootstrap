@@ -1,5 +1,5 @@
 ---
-description: 'Generate or triage a GitHub/GitLab issue from a bug report or feature request. Uses claude/templates.md ticket format.'
+description: 'Generate or triage a GitHub/GitLab issue from a bug report or feature request. Uses context/templates.md ticket format.'
 mode: agent
 tools:
   - read_file
@@ -8,13 +8,13 @@ tools:
 argument-hint: '[describe the bug or feature]'
 ---
 
-Read `claude/templates.md` for the ticket template format.
+Read `context/templates.md` for the ticket template format.
 
 ## Ticket Generation Protocol
 
 1. **Classify:** Bug | Story | Task
 2. **Reproduce (for bugs):** Run the failing scenario and capture exact output
-3. **Fill template** from `claude/templates.md`
+3. **Fill template** from `context/templates.md`
 
 ## For Bugs
 

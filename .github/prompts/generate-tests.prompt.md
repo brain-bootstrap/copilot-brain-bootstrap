@@ -11,7 +11,7 @@ tools:
 argument-hint: '[file or function to test]'
 ---
 
-Read `claude/tasks/lessons.md` first — check for project-specific testing patterns.
+Read `context/tasks/lessons.md` first — check for project-specific testing patterns.
 
 ## Phase 1 — Explore
 

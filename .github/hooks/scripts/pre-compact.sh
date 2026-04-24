@@ -10,8 +10,8 @@ BRANCH=$(git --no-pager branch --show-current 2>/dev/null || echo "unknown")
 
 # Collect open todos
 OPEN_TODOS=""
-if [[ -f "claude/tasks/todo.md" ]]; then
-  OPEN_TODOS=$(grep '^\- \[ \]' claude/tasks/todo.md 2>/dev/null | head -10 || true)
+if [[ -f "context/tasks/todo.md" ]]; then
+  OPEN_TODOS=$(grep '^\- \[ \]' context/tasks/todo.md 2>/dev/null | head -10 || true)
 fi
 
 # Collect uncommitted files
@@ -29,10 +29,10 @@ fi
 SUMMARY+="\nResume with /resume to restore context after compaction."
 
 # Write snapshot to tasks dir (survives compaction)
-mkdir -p claude/tasks
-printf '%b\n' "${SUMMARY}" > claude/tasks/.pre-compact-snapshot.md 2>/dev/null || true
+mkdir -p context/tasks
+printf '%b\n' "${SUMMARY}" > context/tasks/.pre-compact-snapshot.md 2>/dev/null || true
 
-MSG="Context compaction starting. Snapshot saved to claude/tasks/.pre-compact-snapshot.md — Branch: ${BRANCH}"
+MSG="Context compaction starting. Snapshot saved to context/tasks/.pre-compact-snapshot.md — Branch: ${BRANCH}"
 MSG_ESCAPED=$(printf '%s' "${MSG}" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))' 2>/dev/null \
   || printf '"%s"' "${MSG}")
 

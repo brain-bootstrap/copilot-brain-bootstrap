@@ -15,7 +15,7 @@
 
 Copilot Brain Bootstrap is a **production-grade scaffolding system** for GitHub Copilot. It installs in one command and gives every Copilot session:
 
-- **Long-term memory** via `claude/` knowledge docs (your AI reads these)
+- **Long-term memory** via `context/` knowledge docs (your AI reads these)
 - **38 slash commands** for every development workflow
 - **18 skills** for specialized tasks (TDD, security, root-cause tracing...)
 - **5 custom agents** (reviewer, researcher, security-auditor, session-reviewer, plan-challenger)
@@ -40,8 +40,8 @@ bash validate.sh
 ### First session checklist
 
 1. Run `/bootstrap` to fill in `{{PROJECT_NAME}}` and other placeholders
-2. Read `claude/tasks/todo.md` to see your current task state
-3. Review `claude/tasks/lessons.md` to load session wisdom
+2. Read `context/tasks/todo.md` to see your current task state
+3. Review `context/tasks/lessons.md` to load session wisdom
 4. Try `/plan` for new features, `/review` before PRs, `/debug` for errors
 
 ---
@@ -90,23 +90,23 @@ User submits prompt
 | `.gitignore`                             | Ignores local overrides and session artifacts            |
 | `.copilot-instructions.local.md.example` | Template for personal overrides (gitignored)             |
 
-### Knowledge Layer (`claude/`)
+### Knowledge Layer (`context/`)
 
 These files are **read by the AI** at the start of each session. Keep them accurate.
 
-| File                             | Purpose                                                  |
-| -------------------------------- | -------------------------------------------------------- |
-| `claude/rules.md`                | Code quality rules, architectural constraints            |
-| `claude/architecture.md`         | System design, layers, key decisions                     |
-| `claude/build.md`                | Build commands, test commands, CI setup                  |
-| `claude/templates.md`            | MR/PR templates, commit message formats                  |
-| `claude/terminal-safety.md`      | Terminal safety reference — pagers, pipes, interactivity |
-| `claude/cve-policy.md`           | Dependency vulnerability response policy                 |
-| `claude/plugins.md`              | MCP plugins documentation                                |
-| `claude/decisions.md`            | Settled architecture decisions (ADR-lite)                |
-| `claude/tasks/todo.md`           | Current task state — updated every session               |
-| `claude/tasks/lessons.md`        | Accumulated wisdom from past sessions                    |
-| `claude/tasks/COPILOT_ERRORS.md` | Bug tracker with promotion lifecycle                     |
+| File                              | Purpose                                                  |
+| --------------------------------- | -------------------------------------------------------- |
+| `context/rules.md`                | Code quality rules, architectural constraints            |
+| `context/architecture.md`         | System design, layers, key decisions                     |
+| `context/build.md`                | Build commands, test commands, CI setup                  |
+| `context/templates.md`            | MR/PR templates, commit message formats                  |
+| `context/terminal-safety.md`      | Terminal safety reference — pagers, pipes, interactivity |
+| `context/cve-policy.md`           | Dependency vulnerability response policy                 |
+| `context/plugins.md`              | MCP plugins documentation                                |
+| `context/decisions.md`            | Settled architecture decisions (ADR-lite)                |
+| `context/tasks/todo.md`           | Current task state — updated every session               |
+| `context/tasks/lessons.md`        | Accumulated wisdom from past sessions                    |
+| `context/tasks/COPILOT_ERRORS.md` | Bug tracker with promotion lifecycle                     |
 
 ### Prompts (`.github/prompts/`)
 
@@ -241,7 +241,7 @@ bash install.sh /path/to/target
 bash install.sh /path/to/target  # detects existing config, merges safely
 ```
 
-The installer detects existing `claude/` docs and skips them to preserve your customizations.
+The installer detects existing `context/` docs and skips them to preserve your customizations.
 
 ---
 
@@ -312,15 +312,15 @@ Save to `.github/skills/my-domain/SKILL.md`.
 
 ### Add domain knowledge docs
 
-Copy `claude/_examples/api-domain.md` as a starting point.  
-Save your version to `claude/domain/my-api.md` and reference it from `CLAUDE.md`.
+Copy `context/_examples/api-domain.md` as a starting point.  
+Save your version to `context/domain/my-api.md` and reference it from `.github/copilot-instructions.md`.
 
 ---
 
 ## FAQ
 
-**Q: Why is there a `claude/` folder in a Copilot repo?**  
-A: Copilot reads the same `claude/` knowledge docs as Claude Code. This makes the repo dual-compatible — one knowledge base, two AI tools. The `claude/` docs contain your architecture, rules, and task state.
+**Q: Why is there a `context/` folder in a Copilot repo?**  
+A: Copilot reads the same `context/` knowledge docs as Claude Code. This makes the repo dual-compatible — one knowledge base, two AI tools. The `context/` docs contain your architecture, rules, and task state.
 
 **Q: What's the difference between a skill and a prompt?**  
 A: Prompts (`.prompt.md`) are slash commands you invoke explicitly. Skills (`.github/skills/`) are capabilities the AI loads automatically when relevant — or on demand via `/skillname`. Skills can include scripts and resources; prompts are instructions only.
@@ -329,7 +329,7 @@ A: Prompts (`.prompt.md`) are slash commands you invoke explicitly. Skills (`.gi
 A: Each hook has a configurable timeout (default 30s). Simple hooks (terminal safety check) take <100ms. Heavy hooks (quality gate script) take 1-3s. All run in parallel with Copilot's processing.
 
 **Q: Can I use this with Claude Code too?**  
-A: Yes. The `claude/` knowledge layer is shared. Claude Code uses `.claude/` for commands and hooks (separate from `.github/`). Run both setups — they share the knowledge docs without conflicts.
+A: Yes. The `context/` knowledge layer is shared. Claude Code uses `.context/` for commands and hooks (separate from `.github/`). Run both setups — they share the knowledge docs without conflicts.
 
 **Q: How do I disable a hook?**  
 A: Delete or rename the `.json` file in `.github/hooks/`. Or set `chat.hookFilesLocations` in VS Code settings to exclude specific hook files.

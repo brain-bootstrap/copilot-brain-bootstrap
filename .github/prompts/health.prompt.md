@@ -12,10 +12,10 @@ tools:
 
 ### 1. Validate knowledge layer
 
-- [ ] `claude/architecture.md` — no `{{PLACEHOLDER}}` tokens remaining
-- [ ] `claude/build.md` — build commands are real (not `{{BUILD_CMD_ALL}}`)
-- [ ] `claude/rules.md` — readable
-- [ ] `claude/tasks/todo.md` — readable
+- [ ] `context/architecture.md` — no `{{PLACEHOLDER}}` tokens remaining
+- [ ] `context/build.md` — build commands are real (not `{{BUILD_CMD_ALL}}`)
+- [ ] `context/rules.md` — readable
+- [ ] `context/tasks/todo.md` — readable
 
 ### 2. Validate Copilot system files
 

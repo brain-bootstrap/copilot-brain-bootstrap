@@ -10,9 +10,9 @@ user-invocable: true
 
 Generate a structured recap of the repository by reading:
 
-1. `claude/architecture.md` — structure and services
-2. `claude/tasks/todo.md` — current work
-3. `claude/tasks/lessons.md` — recent lessons
+1. `context/architecture.md` — structure and services
+2. `context/tasks/todo.md` — current work
+3. `context/tasks/lessons.md` — recent lessons
 4. `git --no-pager log --oneline -10` — recent history
 5. `git --no-pager status --short` — current state
 

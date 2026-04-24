@@ -19,11 +19,11 @@ argument-hint: '[audit | deps | branches | full]'
 - [ ] Identify merged branches that can be deleted (local only — never remote without confirmation)
 
 ### Knowledge Layer
-- [ ] Are `claude/*.md` files still accurate? Check `claude/build.md` commands still work
-- [ ] Any new lessons learned that aren't in `claude/tasks/lessons.md`?
+- [ ] Are `context/*.md` files still accurate? Check `context/build.md` commands still work
+- [ ] Any new lessons learned that aren't in `context/tasks/lessons.md`?
 
 ### Placeholder Check
-- [ ] `grep -rn '{{' claude/ 2>/dev/null | head -10` — any unfilled placeholders?
+- [ ] `grep -rn '{{' context/ 2>/dev/null | head -10` — any unfilled placeholders?
 
 ## Full Maintenance
 

@@ -10,7 +10,7 @@ model: ['Claude Opus 4 (copilot)', 'GPT-4o (copilot)']
 handoffs:
   - label: 'Generate MR description'
     agent: researcher
-    prompt: 'Based on the review above, generate a merge request description following claude/templates.md format.'
+    prompt: 'Based on the review above, generate a merge request description following context/templates.md format.'
     send: false
 ---
 
@@ -22,9 +22,9 @@ Perform exhaustive code reviews against the 10-point review protocol. You have r
 
 ## Mandatory First Steps
 
-1. Read `claude/tasks/lessons.md` — accumulated wisdom from past sessions
-2. Read `claude/rules.md` — review protocol and project rules
-3. Read `claude/architecture.md` — system context
+1. Read `context/tasks/lessons.md` — accumulated wisdom from past sessions
+2. Read `context/rules.md` — review protocol and project rules
+3. Read `context/architecture.md` — system context
 
 ## Verification Protocol (Anti-Hallucination)
 

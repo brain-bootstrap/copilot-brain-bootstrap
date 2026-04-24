@@ -12,7 +12,7 @@ Visualize your codebase architecture to detect dependency issues and architectur
 
 - Spot circular dependencies before they become a maintenance nightmare
 - Visualize which modules depend on which
-- Detect architecture drift from the intended design in `claude/architecture.md`
+- Detect architecture drift from the intended design in `context/architecture.md`
 - Understand blast radius of a change
 
 ## Operations

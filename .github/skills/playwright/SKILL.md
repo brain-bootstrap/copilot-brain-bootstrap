@@ -8,7 +8,7 @@ user-invocable: true
 
 ## Requirements
 
-Check `claude/plugins.md` for Playwright installation status.
+Check `context/plugins.md` for Playwright installation status.
 
 ## Common Operations
 

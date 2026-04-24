@@ -1,5 +1,5 @@
 ---
-description: 'Generate MR/PR description. Reads claude/templates.md, runs git diff, verifies build+tests pass, saves to claude/tasks/mr-description-*.md.'
+description: 'Generate MR/PR description. Reads context/templates.md, runs git diff, verifies build+tests pass, saves to context/tasks/mr-description-*.md.'
 mode: agent
 tools:
   - read_file
@@ -9,7 +9,7 @@ tools:
 argument-hint: '[optional: MR title override]'
 ---
 
-Read `claude/templates.md` and `claude/tasks/lessons.md` first.
+Read `context/templates.md` and `context/tasks/lessons.md` first.
 
 ## Prerequisites (run in order, stop if any fail)
 
@@ -24,7 +24,7 @@ If any prerequisite fails: **STOP** — fix before generating the MR description
 1. Get diff stat: `git --no-pager diff main...HEAD --stat 2>&1 | head -30`
 2. Get commit messages: `git --no-pager log main...HEAD --oneline 2>&1 | head -20`
 3. Get full diff: `git --no-pager diff main...HEAD --color=never 2>&1 | head -200`
-4. Fill the MR template from `claude/templates.md`
+4. Fill the MR template from `context/templates.md`
 
 ## MR Template Rules
 
@@ -36,6 +36,6 @@ If any prerequisite fails: **STOP** — fix before generating the MR description
 
 ## Save to file
 
-Save the result to `claude/tasks/mr-description-{{branch-name}}.md`
+Save the result to `context/tasks/mr-description-{{branch-name}}.md`
 
 Present to the user for review — do NOT submit/push autonomously.

@@ -8,7 +8,7 @@ tools:
 argument-hint: '[audit | outdated | upgrade <package> | all]'
 ---
 
-Read `claude/cve-policy.md` first for the security audit process.
+Read `context/cve-policy.md` first for the security audit process.
 
 ## Dependency Operations
 

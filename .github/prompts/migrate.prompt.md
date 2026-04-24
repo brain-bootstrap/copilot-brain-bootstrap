@@ -8,7 +8,7 @@ tools:
 argument-hint: '[generate <description> | apply | rollback | status]'
 ---
 
-Read `claude/architecture.md` for the database setup and migration framework.
+Read `context/architecture.md` for the database setup and migration framework.
 
 ## Safety Rules
 

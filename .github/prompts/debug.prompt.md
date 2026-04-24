@@ -10,7 +10,7 @@ tools:
 argument-hint: '[describe the bug or paste the error]'
 ---
 
-Read `claude/tasks/lessons.md` first — check if this bug pattern has been seen before.
+Read `context/tasks/lessons.md` first — check if this bug pattern has been seen before.
 
 ## Iron Law: NO FIX WITHOUT ROOT CAUSE
 
@@ -22,7 +22,7 @@ Do not attempt a fix until you can state the root cause in one sentence:
 Collect all available evidence:
 1. Run the failing command/test and capture full output
 2. Check recent git log: `git --no-pager log --oneline -10 2>&1`
-3. Check if tests pass: `{{TEST_CMD_ALL}}` (from `claude/build.md`)
+3. Check if tests pass: `{{TEST_CMD_ALL}}` (from `context/build.md`)
 4. Identify: what changed recently that could have introduced this?
 
 ## Phase 2 — Hypothesize

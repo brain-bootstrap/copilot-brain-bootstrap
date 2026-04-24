@@ -20,8 +20,8 @@
 
 ### Never Repeat the Same Mistake
 
-- Do not ignore user corrections — after ANY correction, update `claude/tasks/lessons.md` with the pattern.
-- Do not start a session without reviewing `claude/tasks/lessons.md` for relevant project context.
+- Do not ignore user corrections — after ANY correction, update `context/tasks/lessons.md` with the pattern.
+- Do not start a session without reviewing `context/tasks/lessons.md` for relevant project context.
 - Do not yield back to the user without running the **Exit Checklist** (see `copilot-instructions.md`). The learning loop is an **active exit gate**.
 
 ### Never Mark a Task Complete Without Proof
@@ -41,11 +41,11 @@
 
 ### Task Management — Never Skip These Steps
 
-1. **Plan First**: Write a plan to `claude/tasks/todo.md` with checkable items.
+1. **Plan First**: Write a plan to `context/tasks/todo.md` with checkable items.
 2. **Track Progress**: Mark items complete as you go.
 3. **Explain Changes**: Provide a high-level summary at each step.
-4. **Document Results**: Add a review section to `claude/tasks/todo.md`.
-5. **Capture Lessons**: Update `claude/tasks/lessons.md` after any correction.
+4. **Document Results**: Add a review section to `context/tasks/todo.md`.
+5. **Capture Lessons**: Update `context/tasks/lessons.md` after any correction.
 
 ---
 

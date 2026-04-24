@@ -1,192 +1,321 @@
-# Copilot Brain Bootstrap
+<p align="center">
+  <a href="https://github.com/brain-bootstrap/copilot-brain-bootstrap">
+    <img src="https://img.shields.io/badge/ᗺB-Brain%20Bootstrap-6e40c9?style=for-the-badge&labelColor=1a0a3e" alt="ᗺB Brain Bootstrap" />
+  </a>
+</p>
 
-<div align="center">
+<h1 align="center">ᗺB - Brain Bootstrap for GitHub Copilot</h1>
+<p align="center"><em>Your AI coding assistant is brilliant.<br>It just forgets everything, ignores your rules, and breaks your conventions.<br><strong>Brain doesn't hope Copilot behaves — it makes it. Permanently.</strong></em></p>
+<p align="center"><sub>by <a href="https://github.com/y-abs">y-abs</a> · no third-party installs without your explicit approval</sub></p>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
+  <a href="https://github.com/brain-bootstrap/copilot-brain-bootstrap/actions/workflows/ci.yml"><img src="https://github.com/brain-bootstrap/copilot-brain-bootstrap/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="#"><img src="https://img.shields.io/badge/GitHub_Copilot-Ready-6e40c9?logo=github" alt="GitHub Copilot"></a>
+  <a href="#-write-once-read-everywhere"><img src="https://img.shields.io/badge/Any_AI_Tool-Knowledge_Portable-ff6f00" alt="Knowledge Portable"></a>
+</p>
 
-[![CI](https://github.com/brain-bootstrap/copilot-brain-bootstrap/actions/workflows/ci.yml/badge.svg)](https://github.com/brain-bootstrap/copilot-brain-bootstrap/actions/workflows/ci.yml)
-![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-optimized-6e40c9?logo=github)
-![License: MIT](https://img.shields.io/badge/License-MIT-0078D4.svg)
-![Install in 5 min](https://img.shields.io/badge/Setup-5_minutes-green)
-
-**Give GitHub Copilot the memory, discipline, and tooling it needs to be your best engineer.**
-
-[Get Started](#-get-started-in-5-minutes) · [What's Inside](#-whats-inside) · [Under the Hood](#-under-the-hood) · [Contributing](CONTRIBUTING.md)
-
-</div>
-
----
-
-## Sound Familiar?
-
-- Copilot gives you a different answer than last session for the same question
-- Copilot doesn't know your build command, your test framework, or your service names
-- Copilot adds 200 lines of unrelated refactoring to a 5-line bug fix
-- Copilot triggers a pager and hangs the terminal
-- Copilot writes code without first checking how the existing patterns work
-- Copilot marks a task "done" without running a single test
-
-**Copilot is not the problem. Missing context and missing discipline are.**
-
----
-
-## Not Suggestions — Guarantees
-
-Copilot Brain Bootstrap installs a structured system of context, rules, and automation that makes Copilot behave consistently, every session, every project.
-
-| Without Bootstrap                             | With Bootstrap                                              |
-| --------------------------------------------- | ----------------------------------------------------------- |
-| Copilot reinvents patterns it can't remember  | Reads `claude/architecture.md` on every session start       |
-| Copilot runs `git log` and hangs the terminal | Hook blocks it — adds `--no-pager` automatically            |
-| Copilot says "done" without running tests     | Exit checklist enforces proof before ending the turn        |
-| Copilot writes speculative code               | 14 golden rules in `claude/rules.md` — applied every task   |
-| Copilot forgets your lessons                  | `claude/tasks/lessons.md` injected at session start         |
-| No way to delegate parallel work              | `@researcher`, `@reviewer`, `@plan-challenger` agents       |
-| No slash commands for common tasks            | 35+ `/prompts` for build, test, debug, mr, review, and more |
+<p align="center">
+  <a href="#-sound-familiar">Sound Familiar?</a> &nbsp;·&nbsp;
+  <a href="#-not-suggestions--guarantees">Guarantees</a> &nbsp;·&nbsp;
+  <a href="#-what-changes-when-you-add-a-brain">Before & After</a> &nbsp;·&nbsp;
+  <a href="#-get-started-in-5-minutes">5 Min Setup</a> &nbsp;·&nbsp;
+  <a href="#-how-it-works-under-the-hood">Under the Hood</a> &nbsp;·&nbsp;
+  <a href="#-whats-inside">What's Inside</a> &nbsp;·&nbsp;
+  <a href="#-it-gets-smarter-over-time">Gets Smarter</a> &nbsp;·&nbsp;
+  <a href="#-safety-defense-in-depth">Guardrails</a> &nbsp;·&nbsp;
+  <a href="#-plugin-ecosystem">Superpowers</a> &nbsp;·&nbsp;
+  <a href="#-make-it-yours">Make It Yours</a> &nbsp;·&nbsp;
+  <a href="#-faq">FAQ</a> &nbsp;·&nbsp;
+  <a href="#-contributing">Contribute</a>
+</p>
 
 ---
 
-## Get Started in 5 Minutes
+## 🤔 Sound Familiar?
 
-### Option A — One-line install (into an existing project)
+You open VS Code. You ask GitHub Copilot to add a feature to your project.
+
+It doesn't know `yarn turbo build` is the right command, not `npm run build`. That you use Biome, not Prettier. That your `@company/utils` already has `formatDate()` — so it installs `date-fns` and writes a new one from scratch.
+
+**It doesn't know your codebase. It doesn't know your team. It doesn't know your rules.**
+
+You add a `.github/copilot-instructions.md`. Explicit: _"never edit tsconfig.json"_, _"always use yarn"_, _"never git push --force."_
+
+It reads them.
+
+**Then ignores them when it feels like it.**
+
+It edits `tsconfig.json` to silence a type error. Rewrites your `.eslintrc` to "fix" linting. Runs a command that opens a pager — VS Code terminal hangs. Nearly drops your staging DB while "helping."
+
+You correct it. It apologizes. Next session: **same mistakes.**
+
+**Every Copilot session starts from zero. Every correction you made: gone.**
+
+And it keeps going:
+
+- Your teammate uses Claude Code. Another uses Cursor. None share context — three assistants, three different understandings of the same codebase.
+- That architecture doc you wrote six months ago? The codebase moved on. The doc didn't.
+- Code reviews are only as good as how you prompted that day. Inconsistent, unreliable.
+- You ask it to research something — it floods your entire context and you lose the thread.
+- You push a PR. Three days later: _"this broke 14 other files."_
+
+You become a full-time AI babysitter 🍼 — repeating the same instructions, fixing the same mistakes, re-explaining the same architecture.
+
+Session after session after session...
+
+**What if you could teach it once, enforce it automatically — and never babysit again?**
+
+---
+
+## 🔒 Not Suggestions — Guarantees
+
+Every other instruction system hopes the AI complies. Brain doesn't hope — it **enforces**.
+
+Corrections become permanent rules. Forbidden patterns get blocked _before_ they run — by deterministic bash scripts, not AI judgment. The knowledge base updates itself as your codebase evolves. The same mistake cannot happen twice.
+
+**You stop babysitting — Copilot just knows.**
+
+---
+
+## ✨ What Changes When You Add a Brain
+
+Every AI coding tool reads instructions. None of them enforce those instructions on themselves. You write _"never edit tsconfig.json"_ — it edits `tsconfig.json` anyway. You correct it — same mistake next session.
+
+**Instructions are text. Text is advisory. Advisory gets overridden.** Brain replaces text with mechanisms — hooks that block before execution, memory that persists across sessions, knowledge that stays current:
+
+| 🔁 Every session today                                                                             | 🧠 With Brain — once, forever                                                                                                 |
+| :------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| You repeat your conventions every session — package manager, build commands, code style            | Knows your entire toolchain from day one — conventions are documented, not repeated                                           |
+| You re-explain your architecture after every context reset                                         | `context/architecture.md` is auto-loaded on session start — survives restarts, everything                                     |
+| You correct a mistake, it apologizes, then does it again tomorrow                                  | Corrections are captured in `context/tasks/lessons.md` — read at every session start, never repeated                          |
+| Copilot modifies config files to "fix" issues — linter settings, compiler configs, toolchain files | **Config protection** hook blocks edits to any protected file — forces fixing source code, not bypassing the toolchain        |
+| A command opens a pager, launches an editor, or dumps unbounded output — VS Code terminal hangs    | **Terminal safety** hook intercepts dangerous patterns before they execute — pagers, `vi`, unbounded output, all blocked      |
+| Code reviews vary wildly depending on how you prompted                                             | `/review` runs a consistent 10-point protocol every time — same rigor, zero prompt engineering                                |
+| Research eats your main context window and you lose track                                          | `@researcher` subagent explores in an **isolated** context — your main window stays clean                                     |
+| Knowledge docs slowly rot as the code evolves                                                      | Self-maintenance rule + `/maintain` command detect drift and fix stale references automatically                               |
+| You push a PR and discover too late that your change broke 14 other files                          | **code-review-graph** skill scores every diff 0–100 before you push — blast radius, breaking changes, risk verdict in seconds |
+
+**After a few sessions, Copilot will know things about your codebase that even some team members don't.**
+
+---
+
+> 🎯 **100+ files isn't complexity. It's the minimum architecture where instructions become guarantees.**
+
+---
+
+## 🚀 Get Started in 5 Minutes
+
+### Step 1 — Install the template
+
+**Prerequisites:** `git`, `bash` ≥ 3.2, `jq` ([install jq](https://jqlang.github.io/jq/download/) — `brew install jq` / `apt install jq`).
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/brain-bootstrap/copilot-brain-bootstrap/main/install.sh)
+git clone https://github.com/brain-bootstrap/copilot-brain-bootstrap.git /tmp/copilot-brain
+bash /tmp/copilot-brain/install.sh your-repo/
+rm -rf /tmp/copilot-brain
 ```
 
-### Option B — Clone and install
+> 🔍 **Pre-flight check:** `bash /tmp/copilot-brain/install.sh --check` — verifies all prerequisites before touching your repo. Runs in 1 second, no side effects.
 
-```bash
-git clone https://github.com/brain-bootstrap/copilot-brain-bootstrap.git
-bash copilot-brain-bootstrap/install.sh /path/to/your-project
+The installer **auto-detects** fresh install vs. upgrade — it never overwrites your knowledge (`context/`, `lessons.md`, architecture docs). Existing files stay untouched; only missing pieces are added.
+
+### Step 2 — Let Copilot configure itself
+
+Open VS Code in your project, open Copilot Chat, and type:
+
+```
+/bootstrap
 ```
 
-### Option C — Manual (copy what you need)
+The `/bootstrap` prompt runs the discovery engine, detects your entire stack, fills 70+ placeholders, then has Copilot write architecture docs and domain knowledge specific to your codebase. Fully automated, ~5 minutes.
 
-Pick any subset of `.github/prompts/`, `.github/agents/`, `.github/skills/`, or `.github/hooks/` and drop them into your project.
+### Step 3 — Verify
 
-### After install
+```
+/health
+```
 
-1. Open VS Code in your project
-2. Open GitHub Copilot Chat
-3. Type `/bootstrap` → Copilot fills your project-specific placeholders automatically
-4. Type `/health` → verify everything is wired up correctly
+Confirms all hooks, agents, skills, and instructions are wired up correctly. Returns ✅/❌ per check.
 
 ---
 
-## What's Inside
+## 📦 What's Inside
 
-| Category              | Count | Description                                                         |
-| --------------------- | ----- | ------------------------------------------------------------------- |
-| **Prompts** (`/name`) | 38    | Slash commands for every common task                                |
-| **Agents** (`@name`)  | 5     | Specialized expert agents for review, research, security            |
-| **Skills**            | 18    | Auto-activating or on-demand specialist behaviors                   |
-| **Hooks**             | 7     | Lifecycle automation: session context, safety gates, quality checks |
-| **Instructions**      | 9     | Path-specific coding standards (TS, React, Node.js, Python, etc.)   |
-| **Knowledge docs**    | 9     | Persistent project memory in `claude/`                              |
+| Category                 | Count | Description                                                         |
+| :----------------------- | :---: | :------------------------------------------------------------------ |
+| 📋 **Prompts** (`/name`) |  38   | Slash commands for every task in the dev lifecycle                  |
+| 🤖 **Agents** (`@name`)  |   5   | Specialized expert agents for review, research, security            |
+| 🎓 **Skills**            |  18   | Auto-activating or on-demand specialist behaviors                   |
+| 🪝 **Hooks**             |   7   | Lifecycle automation: session context, safety gates, quality checks |
+| 📖 **Instructions**      |   9   | Path-specific coding standards (TS, React, Node.js, Python, etc.)   |
+| 📚 **Knowledge docs**    |   9   | Persistent project memory in `context/`                             |
 
 ---
 
-## Under the Hood
+## 🧠 How It Works Under the Hood
+
+Copilot Brain Bootstrap is **100+ files** of structured configuration that live in your repo, version-controlled alongside your code. It's not a wrapper, not a plugin, not a SaaS product — it's **a knowledge architecture** that teaches GitHub Copilot how your project actually works.
 
 ```
-your-project/
-├── .github/
-│   ├── copilot-instructions.md      ← Always injected by Copilot (<4KB)
-│   ├── agents/
-│   │   ├── reviewer.agent.md        ← @reviewer — 10-point code review
-│   │   ├── researcher.agent.md      ← @researcher — read-only exploration
-│   │   ├── plan-challenger.agent.md ← @plan-challenger — adversarial review
-│   │   ├── security-auditor.agent.md← @security-auditor — 6-category scan
-│   │   └── session-reviewer.agent.md← @session-reviewer — extract lessons
-│   ├── hooks/
-│   │   ├── session-context.json     ← SessionStart: inject branch + todos + commits
-│   │   ├── terminal-safety.json     ← PreToolUse: block pager/interactive/destructive
-│   │   ├── config-protection.json   ← PreToolUse: warn on IDE config edits
-│   │   ├── pre-commit-quality.json  ← PreToolUse: check staged files for secrets
-│   │   ├── quality-gate.json        ← Stop: exit checklist nudge
-│   │   ├── subagent-stop.json       ← SubagentStop: lessons + errors capture
-│   │   ├── pre-compact.json         ← PreCompact: save state before compaction
-│   │   └── scripts/                 ← Shell scripts for each hook
-│   ├── prompts/
-│   │   ├── bootstrap.prompt.md      ← /bootstrap — autonomous project setup
-│   │   ├── plan.prompt.md           ← /plan — write checkable todo list
-│   │   ├── debug.prompt.md          ← /debug — root cause first, always
-│   │   ├── review.prompt.md         ← /review — 10-point code review
-│   │   ├── mr.prompt.md             ← /mr — generate MR description
-│   │   └── ...35+ prompts total
-│   ├── skills/
-│   │   ├── tdd/SKILL.md             ← Auto-activates on test files
-│   │   ├── root-cause-trace/        ← Iron Law: no fix without root cause
-│   │   ├── brainstorming/           ← Hard gate before any code
-│   │   ├── careful/                 ← Extra safety for destructive ops
-│   │   ├── cross-layer-check/       ← Consistency across all layers
-│   │   ├── codeburn/                ← Token cost observability
-│   │   └── ...18 skills total
-│   └── instructions/
-│       ├── general.instructions.md  ← Applies to all files
-│       ├── quality-gates.instructions.md ← Lines/params/nesting limits
-│       ├── typescript.instructions.md    ← TS strict mode, Zod, interfaces
-│       ├── nodejs-backend.instructions.md ← Routes, repos, HTTP codes
-│       ├── react.instructions.md    ← Hooks, TanStack Query, stable keys
-│       ├── python.instructions.md   ← Type hints, Pydantic, pytest
-│       └── testing.instructions.md  ← Applies to test files only
-└── claude/
-    ├── architecture.md              ← Service catalog + workspace layout
-    ├── rules.md                     ← 14 non-negotiable working standards
-    ├── build.md                     ← Build/test/lint commands
-    ├── templates.md                 ← MR/PR and ticket templates
-    ├── terminal-safety.md           ← Terminal safety reference
-    ├── cve-policy.md                ← Dependency security policy
+your-repo/
+├── 📋 .github/copilot-instructions.md    ← Always injected by Copilot (<4KB)
+├── 🤖 .github/agents/
+│   ├── reviewer.agent.md                 ← @reviewer — 10-point code review
+│   ├── researcher.agent.md               ← @researcher — read-only exploration
+│   ├── plan-challenger.agent.md          ← @plan-challenger — adversarial review
+│   ├── security-auditor.agent.md         ← @security-auditor — 6-category scan
+│   └── session-reviewer.agent.md         ← @session-reviewer — extract lessons
+├── 🪝 .github/hooks/
+│   ├── session-context.json              ← SessionStart: inject branch + todos + lessons
+│   ├── terminal-safety.json              ← PreToolUse: block pager/interactive/destructive
+│   ├── config-protection.json            ← PreToolUse: warn on config file edits
+│   ├── pre-commit-quality.json           ← PreToolUse: scan staged files for secrets
+│   ├── quality-gate.json                 ← Stop: exit checklist nudge
+│   ├── subagent-stop.json                ← SubagentStop: capture lessons + errors
+│   ├── pre-compact.json                  ← PreCompact: save state before compaction
+│   └── scripts/                          ← Deterministic bash — zero AI tokens
+├── 📋 .github/prompts/                   ← 38 slash commands
+│   ├── bootstrap.prompt.md               ← /bootstrap — autonomous project setup
+│   ├── plan.prompt.md                    ← /plan — checkable todo list + risk analysis
+│   ├── debug.prompt.md                   ← /debug — root cause first, always
+│   ├── review.prompt.md                  ← /review — 10-point code review
+│   ├── mr.prompt.md                      ← /mr — MR description after build passes
+│   └── ...33 more
+├── 🎓 .github/skills/                    ← 18 specialist behaviors
+│   ├── tdd/SKILL.md                      ← Auto-activates on test files
+│   ├── root-cause-trace/                 ← Iron Law: no fix without root cause
+│   ├── brainstorming/                    ← Hard gate before any code
+│   ├── careful/                          ← Extra confirmation for destructive ops
+│   ├── cross-layer-check/                ← New fields consistent across all layers
+│   ├── codeburn/                         ← Token cost observability
+│   └── ...12 more
+├── 📖 .github/instructions/              ← 9 path-scoped coding standards
+│   ├── general.instructions.md           ← Applies to all files
+│   ├── quality-gates.instructions.md     ← Lines/params/nesting limits
+│   ├── typescript.instructions.md        ← Strict mode, Zod, interfaces
+│   ├── nodejs-backend.instructions.md    ← Routes, repos, HTTP codes
+│   ├── react.instructions.md             ← Hooks, TanStack Query, stable keys
+│   ├── python.instructions.md            ← Type hints, Pydantic, pytest
+│   └── testing.instructions.md           ← Applies to test files only
+└── 📚 context/                           ← Persistent knowledge — updated once, read everywhere
+    ├── architecture.md                   ← Service catalog + workspace layout
+    ├── rules.md                          ← 14 non-negotiable working standards
+    ├── build.md                          ← Build/test/lint/CI commands
+    ├── templates.md                      ← MR/PR and ticket templates
+    ├── terminal-safety.md                ← Terminal anti-patterns reference
+    ├── cve-policy.md                     ← Dependency security decision tree
+    ├── decisions.md                      ← Architectural decisions record (ADR)
+    ├── plugins.md                        ← Active plugins and integration notes
     └── tasks/
-        ├── todo.md                  ← Current task state
-        ├── lessons.md               ← Accumulated wisdom
-        └── COPILOT_ERRORS.md        ← Recurring mistakes to avoid
+        ├── todo.md                       ← 📝 Current task plan (survives session boundaries)
+        ├── lessons.md                    ← 🧠 Accumulated wisdom (injected every session)
+        └── COPILOT_ERRORS.md             ← 🐛 Recurring mistakes → promotes to rules at 3+
 ```
 
----
+**Write your knowledge once. Every AI tool reads it.** ✍️
 
-## How It Works
+Because it lives in your repo, it's version-controlled, PR-reviewed, and shared across your team — no SaaS account, no sync, no drift.
 
-### Automatic Context Injection (SessionStart hook)
+### 🎯 The Three-Layer Context Strategy
 
-Every Copilot session starts with a hook that injects:
+The system minimizes token cost while maximizing context — Copilot doesn't drown in 50K tokens when you ask it to fix a typo:
 
-- Current git branch
-- Open todos from `claude/tasks/todo.md`
-- Recent lessons from `claude/tasks/lessons.md`
-- Active error patterns from `claude/tasks/COPILOT_ERRORS.md`
-
-No more "what branch are we on?" every session.
-
-### Terminal Safety (PreToolUse hook)
-
-Before any `run_in_terminal` call, a hook checks:
-
-- Is this a git command that will trigger a pager? → Block + suggest `--no-pager`
-- Is this an interactive program? → Block with explanation
-- Is this a destructive operation (rm -rf, DROP TABLE)? → Block + require confirmation
-
-### Quality Gate (Stop hook)
-
-Before ending any turn, a hook warns about:
-
-- Uncommitted changes
-- Unchecked todo items
-- Stale lessons file
-
-### The `claude/` Knowledge Layer
-
-All deep project knowledge lives in `claude/*.md` — not in copilot-instructions.md (which is limited to 4KB). Copilot reads these files on demand via `read_file`. Update once, applies everywhere.
-
-This layer is **AI-agnostic**: Claude Code, GitHub Copilot, or any AI that can read files uses the same source of truth.
+| Layer                | What                                                              | When loaded               |     Cost     |
+| :------------------- | :---------------------------------------------------------------- | :------------------------ | :----------: |
+| 🟢 **Always on**     | `copilot-instructions.md` — operating protocol, critical patterns | Every session             | ~3-4K tokens |
+| 🟡 **Auto-injected** | `todo.md` + `lessons.md` + git status — via session-start hook    | Every session start       | ~1-2K tokens |
+| 🔵 **On-demand**     | Full domain docs — architecture, build, auth, database            | When the task requires it |  ~1-2K each  |
 
 ---
 
-## The Prompts
+## 🔄 It Gets Smarter Over Time
 
-Type `/` in Copilot Chat to see all available prompts.
+This isn't a static config that rots. It's a **living system** with five feedback loops:
+
+1. 📋 **Exit checklist** — captures corrections at the end of every turn, so they stick
+2. 🧠 **`lessons.md`** — accumulated wisdom, injected at every session start — impossible to skip
+3. 🐛 **Error promotion** — same mistake 3 times? Becomes a permanent rule in `COPILOT_ERRORS.md`
+4. 🔁 **Session hooks** — context survives restarts and compaction — nothing gets lost
+5. 🔍 **`/maintain`** — audits all docs for stale paths, dead references, drift from reality
+
+---
+
+## 🛡️ Safety: Defense in Depth
+
+Security isn't one mechanism — it's **two layers** working together:
+
+### 🪝 Layer 1: Hooks — What Gets Intercepted at Runtime
+
+7 lifecycle hooks add runtime guardrails — deterministic bash scripts, zero tokens, zero AI reasoning:
+
+| Hook                     | What it prevents                                                                                      |
+| :----------------------- | :---------------------------------------------------------------------------------------------------- |
+| 🚧 **Terminal safety**   | Blocks `vi`/`nano`, pagers, `docker exec -it`, unbounded output — 3 profiles: minimal/standard/strict |
+| 🔒 **Config protection** | Warns before editing `tsconfig.json`, `.eslintrc`, `biome.json` — forces fixing source code instead   |
+| 🧹 **Commit quality**    | Catches `debugger`, `console.log`, hardcoded secrets, `TODO FIXME` in staged files                    |
+| 📦 **Pre-compact**       | Saves branch, open todos, and uncommitted files before context compaction                             |
+| 🤖 **Subagent stop**     | Nudges lessons + error capture after every subagent run                                               |
+| ✅ **Quality gate**      | Exit checklist nudge: uncommitted files, open todos, stale lessons                                    |
+| 🌅 **Session context**   | Injects branch, open todos, recent lessons on every session start                                     |
+
+### 🚫 Layer 2: Copilot Instructions — What the AI Can't Even Attempt
+
+`.github/copilot-instructions.md` hard-codes the non-negotiables. Never git push autonomously. Never modify IDE config files. No fix without root cause. These aren't suggestions — they're **documented invariants** the model reads before every single interaction.
+
+---
+
+## 🔌 Plugin Ecosystem
+
+Four VS Code / MCP plugins available — pick what fits your stack. Install via `/mcp` prompt:
+
+| Tool                                                                       | Axis                                                                       |   Requires   |            Impact            |
+| :------------------------------------------------------------------------- | :------------------------------------------------------------------------- | :----------: | :--------------------------: |
+| **[code-review-graph](https://github.com/tirth8205/code-review-graph)**    | 🔴 Change risk analysis — risk score 0–100, blast radius, breaking changes | Python 3.10+ |      Pre-PR safety gate      |
+| **[codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** | 🔍 Live structural graph — call traces, dead code, Cypher queries          |     curl     |  Fewer tokens vs file reads  |
+| **[cocoindex-code](https://github.com/cocoindex-io/cocoindex-code)**       | 🔎 Semantic search — find code by meaning via local vector embeddings      | Python 3.11+ |    Finds what grep misses    |
+| **[serena](https://github.com/oraios/serena)**                             | 🔧 LSP symbol refactoring — rename/move across entire codebase atomically  | uvx + Python | Atomic multi-file transforms |
+
+> 📚 **Full plugin reference:** [context/plugins.md](context/plugins.md)
+
+---
+
+## 🔀 Write Once, Read Everywhere
+
+| Tool               | What it reads                                       |           Depth           |
+| :----------------- | :-------------------------------------------------- | :-----------------------: |
+| **GitHub Copilot** | `copilot-instructions.md` + `.github/` + `context/` |       🟢 Everything       |
+| **Claude Code**    | `context/*.md` as domain knowledge                  |    🟡 Knowledge layer     |
+| **Codex / Cursor** | `context/*.md` — plain Markdown, zero setup         | 🔵 Drop-in knowledge base |
+
+Subagents declare their preferred model (`Claude Opus 4` or `GPT-4o`). Falls back gracefully to whatever you're running.
+
+---
+
+## ⚙️ Make It Yours
+
+Extending the Brain is simple — one file, one registration:
+
+| To add…             | Create…                                           | Registration                                  |
+| :------------------ | :------------------------------------------------ | :-------------------------------------------- |
+| 📚 Domain knowledge | `context/<domain>.md`                             | Add to `copilot-instructions.md` lookup table |
+| 🎓 Skill            | `.github/skills/<name>/SKILL.md`                  | Automatic (Copilot discovers by directory)    |
+| 🪝 Lifecycle hook   | `.github/hooks/<name>.json` + `scripts/<name>.sh` | Automatic (loaded by VS Code)                 |
+| 🤖 AI agent         | `.github/agents/<name>.agent.md`                  | Automatic (invocable via `@name`)             |
+
+Three worked examples in `context/_examples/` — API domain, database domain, messaging domain.
+
+### Personal override
+
+Copy `.copilot-instructions.local.md.example` → `.copilot-instructions.local.md` (gitignored) for personal instructions that don't belong in the shared `copilot-instructions.md`.
+
+---
+
+## 📋 The Prompts
+
+Type `/` in Copilot Chat to see all 38 available prompts.
 
 | Prompt            | What it does                                                     |
-| ----------------- | ---------------------------------------------------------------- |
+| :---------------- | :--------------------------------------------------------------- |
 | `/bootstrap`      | Auto-discover project, fill all placeholders, configure plugins  |
 | `/plan`           | Write checkable todo list with risk analysis before implementing |
 | `/debug`          | 4-phase debug: Observe → Hypothesize → Trace → Verify            |
@@ -198,34 +327,34 @@ Type `/` in Copilot Chat to see all available prompts.
 | `/resume`         | Restore full session context after a break                       |
 | `/checkpoint`     | Save progress, commit, prepare for handoff                       |
 | `/health`         | Full system health check                                         |
-| `/research`       | Structured codebase exploration                                  |
-| `/caveman`        | Think out loud before coding (hard gate)                         |
 | `/status`         | Branch, uncommitted changes, open todos                          |
 | `/generate-tests` | TDD-first test generation                                        |
+| `/caveman`        | Think out loud before coding (hard gate)                         |
+| `/maintain`       | Detect stale docs, fix cross-references                          |
 | + 23 more         | See `.github/prompts/`                                           |
 
 ---
 
-## The Agents
+## 🤖 The Agents
 
 Invoke with `@agent-name` in Copilot Chat.
 
-| Agent               | What it does                                                                  |
-| ------------------- | ----------------------------------------------------------------------------- |
-| `@reviewer`         | 10-point review: cross-layer consistency, transaction safety, test coverage   |
-| `@researcher`       | Read-only exploration with structured findings: evidence, data flow, pitfalls |
-| `@plan-challenger`  | Adversarial plan review: 5 attack dimensions + self-refutation                |
-| `@security-auditor` | 6-category scan: secrets, auth, input validation, deps, data handling, infra  |
-| `@session-reviewer` | Extract lessons from session patterns; feed to lessons.md                     |
+| Agent               | What it does                                                                      |
+| :------------------ | :-------------------------------------------------------------------------------- |
+| `@reviewer`         | 10-point review: cross-layer consistency, transaction safety, test coverage       |
+| `@researcher`       | Read-only exploration with structured findings: evidence, data flow, pitfalls     |
+| `@plan-challenger`  | Adversarial plan review: 5 attack dimensions + self-refutation                    |
+| `@security-auditor` | 6-category scan: secrets, auth, input validation, deps, data handling, infra      |
+| `@session-reviewer` | Extract lessons from session patterns; feed to `lessons.md` + `COPILOT_ERRORS.md` |
 
 ---
 
-## The Skills
+## 🎓 The Skills
 
-Skills are auto-activating or on-demand specialist behaviors.
+Skills are auto-activating or on-demand specialist behaviors. Load them by mentioning their name in chat.
 
 | Skill                   | Activates             | What it enforces                                   |
-| ----------------------- | --------------------- | -------------------------------------------------- |
+| :---------------------- | :-------------------- | :------------------------------------------------- |
 | `tdd`                   | On test files         | 3-phase: Explore → Plan → Act                      |
 | `root-cause-trace`      | On-demand             | Iron Law: no fix without root cause                |
 | `brainstorming`         | On-demand             | Hard gate — no code without structured analysis    |
@@ -234,34 +363,97 @@ Skills are auto-activating or on-demand specialist behaviors.
 | `changelog`             | On-demand             | Keep a Changelog format, user-facing descriptions  |
 | `receiving-code-review` | On-demand             | Triage, fix, respond to review comments            |
 | `writing-skills`        | On-demand             | Clear, evidence-based technical writing            |
-| + 9 more                | See `.github/skills/` |                                                    |
+| + 10 more               | See `.github/skills/` |                                                    |
 
 ---
 
-## Validation
+## ❓ FAQ
+
+<details>
+<summary><strong>💻 What platforms and languages are supported?</strong></summary>
+
+**Platforms:** Linux ✅, macOS ✅, Windows ✅ (with bash via Git Bash or WSL).
+
+**Prerequisites:** VS Code with GitHub Copilot, `git`, `bash` ≥ 3.2, `jq`. Optional: Python 3.10+ for MCP plugins.
+
+**Languages:** Any — TypeScript, Python, Go, Rust, Java, Ruby, PHP, C#, and more. The knowledge docs are language-agnostic; stack-specific details are filled in during `/bootstrap`.
+
+> 💡 Run `bash install.sh --check` to verify all prerequisites.
+
+</details>
+
+<details>
+<summary><strong>🔄 I already have a copilot-instructions.md / context/ — will this overwrite it?</strong></summary>
+
+Never. The installer detects your existing config and enters **upgrade mode** — it adds only what's missing and never touches your knowledge files. Existing files stay untouched.
+
+</details>
+
+<details>
+<summary><strong>💰 How much does it cost in tokens?</strong></summary>
+
+Very little. The system is cheap by default:
+
+- **Always on:** ~3-4K tokens (`copilot-instructions.md`)
+- **Auto-injected:** ~1-2K tokens (session hook: `todo.md` + `lessons.md` + git status)
+- **On-demand:** ~1-2K tokens per doc (only when the task needs it)
+
+</details>
+
+<details>
+<summary><strong>🪝 What are hooks and do I need them?</strong></summary>
+
+Hooks are VS Code Copilot lifecycle events that fire bash scripts at key moments (session start, before/after tool use, before stopping). They're what make Brain's guarantees possible — terminal safety, config protection, exit checklist.
+
+They're enabled automatically when VS Code loads them from `.github/hooks/`. No configuration needed.
+
+</details>
+
+<details>
+<summary><strong>👥 Is this just for solo developers?</strong></summary>
+
+Works great solo, but it's designed for teams. Everything is version-controlled and shared by default. The whole team gets the same Copilot behavior, the same safety hooks, the same prompts.
+
+Not ready to share? Add `context/` to `.gitignore` and keep it local — the `.github/` system still works for everyone.
+
+</details>
+
+<details>
+<summary><strong>⚖️ How is this different from just writing a good copilot-instructions.md?</strong></summary>
+
+Scope. A hand-written `copilot-instructions.md` is a flat instruction file — the AI reads it _if it feels like it_. Brain is a **multi-layered enforcement architecture** with lifecycle hooks that block before execution, agents that run in isolated contexts, 18 skills that activate per task, and session memory that persists across restarts.
+
+It's the difference between a sticky note and an operating system.
+
+</details>
+
+---
+
+## ✅ Validation
 
 ```bash
 bash validate.sh
 ```
 
-Checks: core instruction file, knowledge layer, prompts, agents, hooks, skills, instructions, and placeholder detection. Returns ✅/❌ per check.
+Checks: core instruction file, knowledge layer, prompts, agents, hooks, skills, instructions, placeholder detection. Returns ✅/❌ per check.
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+PRs welcome! All contributions must be **domain-agnostic** — no project-specific content.
+
+👉 **[Full guide → CONTRIBUTING.md](CONTRIBUTING.md)** · 🐛 **[Report a bug](https://github.com/brain-bootstrap/copilot-brain-bootstrap/issues/new/choose)**
 
 ---
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE).
 
 ---
 
-<div align="center">
-
-Built by developers who were tired of re-explaining the same things to Copilot every session.
-
-</div>
+<p align="center">
+  <em>Built by developers who were tired of re-explaining the same things to Copilot every session.</em><br>
+  <sub>Part of the <a href="https://github.com/brain-bootstrap">ᗺB Brain Bootstrap</a> family — also available for <a href="https://github.com/brain-bootstrap/claude-code-brain-bootstrap">Claude Code</a> and <a href="https://github.com/brain-bootstrap/codex-brain-bootstrap">OpenAI Codex</a>.</sub>
+</p>

@@ -42,8 +42,8 @@ Scan conversation history and project files for these signal categories:
 ## Analysis Process
 
 1. Read recent git log (last 20 commits) for revert/fix cycles
-2. Read `claude/tasks/COPILOT_ERRORS.md` for recurring error types
-3. Read `claude/tasks/lessons.md` for existing patterns
+2. Read `context/tasks/COPILOT_ERRORS.md` for recurring error types
+3. Read `context/tasks/lessons.md` for existing patterns
 4. Categorize findings by severity and actionability
 
 ## Output Format

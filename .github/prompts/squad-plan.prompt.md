@@ -8,7 +8,7 @@ tools:
 argument-hint: '[feature or epic to decompose]'
 ---
 
-Read `claude/architecture.md` and `claude/tasks/lessons.md` first.
+Read `context/architecture.md` and `context/tasks/lessons.md` first.
 
 ## Squad Planning Protocol
 

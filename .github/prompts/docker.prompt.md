@@ -42,5 +42,5 @@ docker logs --no-color --tail=50 container-name 2>&1
 
 ## Rules
 
-- Always check `claude/architecture.md` for service names before docker exec
+- Always check `context/architecture.md` for service names before docker exec
 - Use `--no-color` on all docker log commands

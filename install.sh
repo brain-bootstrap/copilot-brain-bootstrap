@@ -76,7 +76,7 @@ fi
 
 # ── Detect FRESH vs UPGRADE ───────────────────────────────────────────────────
 MODE="fresh"
-if [[ -f ".github/copilot-instructions.md" ]] || [[ -d "claude" && -f "claude/rules.md" ]]; then
+if [[ -f ".github/copilot-instructions.md" ]] || [[ -d "context" && -f "context/rules.md" ]]; then
   MODE="upgrade"
 fi
 
@@ -120,9 +120,9 @@ copy_dir_missing "${BOOTSTRAP_DIR}/.github/skills" ".github/skills"
 info "Installing instructions..."
 copy_dir_missing "${BOOTSTRAP_DIR}/.github/instructions" ".github/instructions"
 
-# ── Install knowledge layer (claude/) ────────────────────────────────────────
-info "Installing claude/ knowledge layer..."
-copy_dir_missing "${BOOTSTRAP_DIR}/claude" "claude"
+# ── Install knowledge layer (context/) ────────────────────────────────────────
+info "Installing context/ knowledge layer..."
+copy_dir_missing "${BOOTSTRAP_DIR}/context" "context"
 
 # ── Install validate.sh ───────────────────────────────────────────────────────
 copy_if_missing "${BOOTSTRAP_DIR}/validate.sh" "validate.sh"

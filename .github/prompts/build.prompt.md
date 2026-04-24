@@ -1,5 +1,5 @@
 ---
-description: 'Run build. Read claude/build.md for exact commands. Report pass/fail with logs.'
+description: 'Run build. Read context/build.md for exact commands. Report pass/fail with logs.'
 mode: agent
 tools:
   - read_file
@@ -7,7 +7,7 @@ tools:
 argument-hint: '[optional: service name for single-service build]'
 ---
 
-Read `claude/build.md` first to get the exact build commands.
+Read `context/build.md` first to get the exact build commands.
 
 ## Build Protocol
 

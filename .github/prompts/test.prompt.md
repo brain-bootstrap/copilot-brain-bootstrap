@@ -1,5 +1,5 @@
 ---
-description: 'Run test suite. Read claude/build.md for test commands. Report pass/fail with exact counts. Fix failures.'
+description: 'Run test suite. Read context/build.md for test commands. Report pass/fail with exact counts. Fix failures.'
 mode: agent
 tools:
   - read_file
@@ -8,7 +8,7 @@ tools:
 argument-hint: '[optional: specific test file or test name pattern]'
 ---
 
-Read `claude/build.md` first to get the exact test commands.
+Read `context/build.md` first to get the exact test commands.
 
 ## Test Protocol
 

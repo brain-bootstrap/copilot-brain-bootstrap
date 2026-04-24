@@ -6,7 +6,7 @@ tools:
   - read_file
 ---
 
-Read `claude/plugins.md` to check which code indexing tool is configured.
+Read `context/plugins.md` to check which code indexing tool is configured.
 
 ## CocoIndex
 

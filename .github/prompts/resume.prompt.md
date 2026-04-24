@@ -9,9 +9,9 @@ tools:
 
 ## Context Restoration Protocol
 
-1. Read `claude/tasks/todo.md` — current task state
-2. Read `claude/tasks/lessons.md` — recent lessons (last 10 lines)
-3. Read `claude/architecture.md` — system context
+1. Read `context/tasks/todo.md` — current task state
+2. Read `context/tasks/lessons.md` — recent lessons (last 10 lines)
+3. Read `context/architecture.md` — system context
 4. Run `git --no-pager log --oneline -10 2>&1` — recent commits
 5. Run `git --no-pager status --short 2>&1 | head -20` — uncommitted changes
 

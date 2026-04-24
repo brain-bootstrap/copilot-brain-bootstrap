@@ -22,7 +22,7 @@ Restate the problem in your own words. Ask the user to confirm understanding bef
 List what you know from the codebase (search for evidence — no guessing):
 - What patterns already exist?
 - What constraints apply?
-- What has been tried before? (check `claude/tasks/lessons.md`)
+- What has been tried before? (check `context/tasks/lessons.md`)
 
 ### 3. Options
 

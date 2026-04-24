@@ -7,13 +7,13 @@ tools:
 argument-hint: '[start | stop | restart | logs | status]'
 ---
 
-Read `claude/build.md` for the dev server command.
+Read `context/build.md` for the dev server command.
 
 ## Dev Server Operations
 
 ### Start
 ```bash
-# Run in background — read claude/build.md for the actual command
+# Run in background — read context/build.md for the actual command
 {{DEV_CMD}} &
 ```
 

@@ -1,5 +1,5 @@
 ---
-description: 'Compress context window: summarize conversation progress, save to claude/tasks/, prepare for continuation in a new session.'
+description: 'Compress context window: summarize conversation progress, save to context/tasks/, prepare for continuation in a new session.'
 mode: agent
 tools:
   - read_file
@@ -16,9 +16,9 @@ argument-hint: '[optional: output file name]'
    - What decisions were made
    - What is blocked
 
-2. **Capture todo state** — read `claude/tasks/todo.md` for current task list
+2. **Capture todo state** — read `context/tasks/todo.md` for current task list
 
-3. **Write session summary** to `claude/tasks/session-YYYY-MM-DD.md`
+3. **Write session summary** to `context/tasks/session-YYYY-MM-DD.md`
 
 4. **Prepare handoff message** — what the next session needs to know to continue
 
@@ -40,6 +40,6 @@ argument-hint: '[optional: output file name]'
 - [blocker]: [how to unblock]
 
 ## Next Session: Start Here
-1. Read claude/tasks/todo.md
+1. Read context/tasks/todo.md
 2. [specific next action]
 ```

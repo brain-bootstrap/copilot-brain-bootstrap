@@ -14,9 +14,9 @@ Create and maintain a persistent, queryable memory of the codebase structure —
 
 | File | Purpose |
 |------|---------|
-| `claude/architecture.md` | Service catalog, directory layout |
-| `claude/decisions.md` | Architectural decisions (ADRs) |
-| `claude/tasks/lessons.md` | Accumulated wisdom from past work |
+| `context/architecture.md` | Service catalog, directory layout |
+| `context/decisions.md` | Architectural decisions (ADRs) |
+| `context/tasks/lessons.md` | Accumulated wisdom from past work |
 
 ## Update Protocol
 
@@ -30,7 +30,7 @@ After any significant code change:
 
 Before reading any file from scratch:
 
-1. Check `claude/architecture.md` for the relevant service/module
+1. Check `context/architecture.md` for the relevant service/module
 2. Use grep to find specific patterns: `grep -rn 'pattern' --color=never . 2>/dev/null | head -20`
 3. Only then open the specific file
 

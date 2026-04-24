@@ -28,5 +28,5 @@ ps aux 2>/dev/null | grep -i mcp | grep -v grep | head -10
 - `stdio` — local subprocess (most common)
 - `sse` — server-sent events endpoint
 
-### Notes from claude/plugins.md
-Read `claude/plugins.md` for any project-specific MCP server documentation.
+### Notes from context/plugins.md
+Read `context/plugins.md` for any project-specific MCP server documentation.

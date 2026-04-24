@@ -18,7 +18,7 @@ Use Serena instead of grep when you need:
 
 ## Requirements
 
-- Serena must be configured: check `claude/plugins.md` for installation status
+- Serena must be configured: check `context/plugins.md` for installation status
 - Serena project config: `.serena/project.yml`
 
 ## Operations

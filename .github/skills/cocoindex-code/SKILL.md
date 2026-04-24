@@ -10,7 +10,7 @@ CocoIndex enables structural code queries that are impossible with text search.
 
 ## Requirements
 
-Check `claude/plugins.md` for CocoIndex installation status.
+Check `context/plugins.md` for CocoIndex installation status.
 Config: `.cocoindex_code/settings.yml`
 
 ## When to Use CocoIndex vs grep

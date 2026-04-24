@@ -42,22 +42,22 @@ else
 fi
 
 # ── 2. Knowledge layer ────────────────────────────────────────────────────────
-printf "\n${BOLD}[2] Knowledge layer (claude/)${RESET}\n"
+printf "\n${BOLD}[2] Knowledge layer (context/)${RESET}\n"
 REQUIRED_DOCS="rules.md architecture.md build.md templates.md terminal-safety.md cve-policy.md"
 for DOC in ${REQUIRED_DOCS}; do
-  if [[ -f "claude/${DOC}" ]]; then
-    ok "claude/${DOC}"
+  if [[ -f "context/${DOC}" ]]; then
+    ok "context/${DOC}"
   else
-    fail "claude/${DOC} missing"
+    fail "context/${DOC} missing"
   fi
 done
 
 REQUIRED_TASKS="todo.md lessons.md COPILOT_ERRORS.md"
 for T in ${REQUIRED_TASKS}; do
-  if [[ -f "claude/tasks/${T}" ]]; then
-    ok "claude/tasks/${T}"
+  if [[ -f "context/tasks/${T}" ]]; then
+    ok "context/tasks/${T}"
   else
-    fail "claude/tasks/${T} missing"
+    fail "context/tasks/${T} missing"
   fi
 done
 
@@ -158,7 +158,7 @@ fi
 
 # ── 8. Placeholder check ──────────────────────────────────────────────────────
 printf "\n${BOLD}[8] Placeholder detection${RESET}\n"
-PLACEHOLDER_COUNT=$(grep -r '{{' .github/copilot-instructions.md claude/ 2>/dev/null | grep -v '^Binary' | grep -v PLACEHOLDER | wc -l | tr -d ' ')
+PLACEHOLDER_COUNT=$(grep -r '{{' .github/copilot-instructions.md context/ 2>/dev/null | grep -v '^Binary' | grep -v PLACEHOLDER | wc -l | tr -d ' ')
 if [[ "${PLACEHOLDER_COUNT}" -eq 0 ]]; then
   ok "No unfilled placeholders found"
 else

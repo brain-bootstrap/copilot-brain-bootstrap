@@ -26,7 +26,7 @@ applyTo: '**/*'
 
 ## Terminal Safety (applies to all tool calls)
 
-- See `claude/terminal-safety.md` for full rules
+- See `context/terminal-safety.md` for full rules
 - Always use `git --no-pager` — never trigger a pager
 - Never open interactive programs (vi, nano, psql bare)
 - Always bound output: `| head -N`
@@ -36,4 +36,4 @@ applyTo: '**/*'
 - Never skip reading existing files before modifying them
 - Never mark tasks complete without running proof (tests pass, logs confirm)
 - Never make non-surgical changes — only touch files that the task requires
-- Update `claude/tasks/lessons.md` after any correction
+- Update `context/tasks/lessons.md` after any correction
