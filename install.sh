@@ -19,10 +19,6 @@ RESET='\033[0m'
 # ── Config ────────────────────────────────────────────────────────────────────
 BOOTSTRAP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_DIR="${1:-$PWD}"
-MIN_PROMPTS=10
-MIN_AGENTS=3
-MIN_HOOKS=2
-MIN_SKILLS=5
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 info()    { printf "${BLUE}[info]${RESET} %s\n" "$*"; }
@@ -127,6 +123,9 @@ copy_dir_missing "${BOOTSTRAP_DIR}/.github/instructions" ".github/instructions"
 # ── Install knowledge layer (claude/) ────────────────────────────────────────
 info "Installing claude/ knowledge layer..."
 copy_dir_missing "${BOOTSTRAP_DIR}/claude" "claude"
+
+# ── Install validate.sh ───────────────────────────────────────────────────────
+copy_if_missing "${BOOTSTRAP_DIR}/validate.sh" "validate.sh"
 
 # ── Summary ───────────────────────────────────────────────────────────────────
 printf "\n${BOLD}━━━ Installation Summary ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n\n"

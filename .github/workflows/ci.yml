@@ -32,7 +32,6 @@ jobs:
           args: >-
             --offline
             --no-progress
-            --include-fragments
             '*.md'
             'claude/**/*.md'
             '.github/**/*.md'

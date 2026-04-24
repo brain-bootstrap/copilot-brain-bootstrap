@@ -21,7 +21,7 @@ ok()   { printf "${GREEN}✅${RESET} %s\n" "$*"; ((PASS++)) || true; }
 fail() { printf "${RED}❌${RESET} %s\n" "$*"; ((FAIL++)) || true; }
 warn() { printf "${YELLOW}⚠️${RESET}  %s\n" "$*"; ((WARN_COUNT++)) || true; }
 
-cd "${TARGET_DIR}"
+cd "${TARGET_DIR}" || exit 1
 
 printf "\n${BOLD}━━━ Copilot Brain Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 printf "Target: %s\n\n" "${TARGET_DIR}"
