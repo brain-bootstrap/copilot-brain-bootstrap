@@ -1,6 +1,6 @@
 ---
 description: 'Context overview: what is this project, what are the main components, what are the current tasks?'
-mode: agent
+agent: agent
 tools:
   - read_file
   - file_search

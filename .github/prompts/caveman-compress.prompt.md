@@ -1,6 +1,6 @@
 ---
 description: 'Compress context window: summarize conversation progress, save to context/tasks/, prepare for continuation in a new session.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - create_file

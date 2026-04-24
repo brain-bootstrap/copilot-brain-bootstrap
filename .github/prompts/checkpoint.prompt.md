@@ -1,6 +1,6 @@
 ---
 description: 'Save a checkpoint: commit all progress, record todo state, summarize session for resumption. Use when switching tasks or ending a session.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

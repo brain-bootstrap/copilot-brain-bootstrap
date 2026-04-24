@@ -1,6 +1,6 @@
 ---
 description: 'Multi-agent squad planning: break a large feature into parallel workstreams, assign to subagents, coordinate execution.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - replace_string_in_file

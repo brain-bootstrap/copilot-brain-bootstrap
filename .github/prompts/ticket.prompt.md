@@ -1,6 +1,6 @@
 ---
 description: 'Generate or triage a GitHub/GitLab issue from a bug report or feature request. Uses context/templates.md ticket format.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

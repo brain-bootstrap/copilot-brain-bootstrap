@@ -1,6 +1,6 @@
 ---
 description: 'Show project status: branch, uncommitted changes, open todos, test status, recent commits.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

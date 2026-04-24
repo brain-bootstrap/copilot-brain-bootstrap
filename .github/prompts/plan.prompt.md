@@ -1,6 +1,6 @@
 ---
 description: 'Plan a task: read lessons + architecture, write a checkable todo list to context/tasks/todo.md, challenge the plan adversarially, then present for approval.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - replace_string_in_file

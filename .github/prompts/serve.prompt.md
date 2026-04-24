@@ -1,6 +1,6 @@
 ---
 description: 'Start or manage a local dev server. Check service health, read logs, restart if needed.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

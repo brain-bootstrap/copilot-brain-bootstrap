@@ -1,6 +1,6 @@
 ---
 description: 'Migration helper. Generate, review, and apply DB migrations safely with dry-run and rollback support.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

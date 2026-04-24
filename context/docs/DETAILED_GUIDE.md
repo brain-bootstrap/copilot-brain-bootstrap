@@ -71,7 +71,6 @@ User submits prompt
   → [Agent works...]
   → PreToolUse hook fires before any terminal command (safety gate)
   → [Agent runs command...]
-  → PostToolUse hook fires after file edits (quality gate)
   → [Agent finishes...]
   → Stop hook fires (exit checklist nudge)
 ```
@@ -82,13 +81,13 @@ User submits prompt
 
 ### Root Files
 
-| File                                     | Purpose                                                  |
-| ---------------------------------------- | -------------------------------------------------------- |
-| `install.sh`                             | FRESH + UPGRADE installation. Idempotent.                |
-| `validate.sh`                            | Confirms all components installed correctly              |
-| `.shellcheckrc`                          | ShellCheck config — `shell=bash`, SC1090/SC1091 disabled |
-| `.gitignore`                             | Ignores local overrides and session artifacts            |
-| `.copilot-instructions.local.md.example` | Template for personal overrides (gitignored)             |
+| File                                     | Purpose                                                                                                |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `install.sh`                             | FRESH + UPGRADE installation. Idempotent.                                                              |
+| `validate.sh`                            | Confirms all components installed correctly                                                            |
+| `.shellcheckrc`                          | ShellCheck config — `shell=bash`, SC1090/SC1091 disabled                                               |
+| `.gitignore`                             | Ignores local overrides and session artifacts                                                          |
+| `.copilot-instructions.local.md.example` | Template for personal overrides — copy to `.github/instructions/personal.instructions.md` (gitignored) |
 
 ### Knowledge Layer (`context/`)
 

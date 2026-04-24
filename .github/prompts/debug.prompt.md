@@ -1,6 +1,6 @@
 ---
 description: 'Root cause debugging: 4-phase protocol (Observe, Hypothesize, Trace, Verify). Iron Law: no fix without root cause. No more "try this and see".'
-mode: agent
+agent: agent
 tools:
   - read_file
   - grep_search

@@ -297,7 +297,7 @@ Three worked examples in `context/_examples/` — API domain, database domain, m
 
 ### Personal override
 
-Copy `.copilot-instructions.local.md.example` → `.copilot-instructions.local.md` (gitignored) for personal instructions that don't belong in the shared `copilot-instructions.md`.
+Copy `.copilot-instructions.local.md.example` → `.github/instructions/personal.instructions.md` (gitignored) for personal instructions that don't belong in the shared `copilot-instructions.md`. The `.instructions.md` extension ensures VS Code Copilot auto-detects it from `.github/instructions/`.
 
 ---
 

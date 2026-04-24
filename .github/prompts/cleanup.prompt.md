@@ -1,6 +1,6 @@
 ---
 description: 'Cleanup pass: remove dead code, fix lint violations, delete unused imports, tidy up after a feature. Surgical changes only.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - replace_string_in_file

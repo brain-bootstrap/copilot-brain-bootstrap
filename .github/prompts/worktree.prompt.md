@@ -1,6 +1,6 @@
 ---
 description: 'Git worktree operations: create, list, clean, switch. Enables parallel workstreams without stashing.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
   - read_file

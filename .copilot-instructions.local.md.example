@@ -1,11 +1,14 @@
+---
+applyTo: '**/*'
+description: 'Personal coding preferences and local overrides (not committed to version control)'
+---
 # Local Copilot Instructions Override Example
 #
-# Copy this file to .github/copilot-instructions.local.md and customize it.
+# Copy this file to .github/instructions/personal.instructions.md
 # This file is gitignored — use it for personal overrides that shouldn't be committed.
 #
-# Note: GitHub Copilot currently reads .github/copilot-instructions.md as the
-# main file. This local override is for teams that want to add personal context
-# on top of the shared instructions.
+# The .instructions.md extension in .github/instructions/ ensures VS Code Copilot
+# auto-detects this file without any additional settings.
 #
 # Add your personal context below:
 

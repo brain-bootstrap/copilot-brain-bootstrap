@@ -1,6 +1,6 @@
 ---
 description: 'Check, audit, and upgrade dependencies. Run security audit, check outdated packages, review before updating.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

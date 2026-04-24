@@ -1,6 +1,6 @@
 ---
 description: 'Diff viewer with context. Shows what changed, when, and why. Filters by file, directory, or author.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
   - read_file

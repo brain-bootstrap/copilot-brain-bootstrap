@@ -1,6 +1,6 @@
 ---
 description: 'Full project health check: validate all hooks, agents, skills, instructions are properly loaded. Check for placeholder tokens, missing files, and stale knowledge.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

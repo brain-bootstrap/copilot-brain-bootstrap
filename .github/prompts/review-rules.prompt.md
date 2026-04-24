@@ -1,6 +1,6 @@
 ---
 description: 'Review coding rules from context/rules.md. Use when uncertain about conventions or to refresh AI working standards.'
-mode: agent
+agent: agent
 tools:
   - read_file
 ---

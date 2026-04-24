@@ -1,6 +1,6 @@
 ---
 description: 'Caveman review: slow-motion code review of the current diff. Read every changed line, think out loud about each change.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

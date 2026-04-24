@@ -1,6 +1,6 @@
 ---
 description: 'Full 10-point code review. Reads lessons.md, runs git diff, checks cross-layer consistency, transaction safety, test coverage. Returns structured report with severity markers.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - grep_search

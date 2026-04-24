@@ -2,6 +2,7 @@
 
 # Local personal overrides
 .github/copilot-instructions.local.md
+.github/instructions/personal.instructions.md
 
 # Code index (generated, not committed)
 .cocoindex_code/

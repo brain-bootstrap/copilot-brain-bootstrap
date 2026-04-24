@@ -34,7 +34,7 @@
 
 **Agents**: `@reviewer` (10-pt review) · `@researcher` (exploration) · `@plan-challenger` (adversarial) · `@security-auditor` · `@session-reviewer`
 
-**Prompts** (`/`): `/plan` `/debug` `/review` `/mr` `/build` `/test` `/lint` `/resume` `/bootstrap` `/health` + 25 more
+**Prompts** (`/`): `/plan` `/debug` `/review` `/mr` `/build` `/test` `/lint` `/resume` `/bootstrap` `/health` + 28 more
 
 **Skills**: `tdd` · `root-cause-trace` · `cross-layer-check` · `brainstorming` · `careful` · `changelog` + 12 more
 

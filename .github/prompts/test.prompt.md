@@ -1,6 +1,6 @@
 ---
 description: 'Run test suite. Read context/build.md for test commands. Report pass/fail with exact counts. Fix failures.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

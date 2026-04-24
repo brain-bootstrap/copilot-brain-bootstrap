@@ -1,6 +1,6 @@
 ---
 description: 'Database operation helper. Schema inspection, migration generation, query analysis. Safety-first: never runs destructive operations without explicit confirmation.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

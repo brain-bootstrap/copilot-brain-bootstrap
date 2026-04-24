@@ -1,6 +1,6 @@
 ---
 description: 'Git operations helper. Smart commit (conventional commits), branch management, worktree operations. Never pushes autonomously.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
   - read_file

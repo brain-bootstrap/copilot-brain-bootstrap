@@ -1,6 +1,6 @@
 ---
 description: 'Caveman mode: think out loud before coding. HARD GATE — no code until brainstorm is complete. Use for complex problems, architecture decisions, or when stuck.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - grep_search

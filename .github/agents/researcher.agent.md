@@ -7,7 +7,7 @@ tools:
   - list_dir
   - run_in_terminal
   - semantic_search
-model: ['Claude Opus 4 (copilot)', 'GPT-4o (copilot)']
+model: ['Claude Sonnet 4.5 (copilot)', 'GPT-4o (copilot)']
 ---
 
 You are a codebase research agent for this project.

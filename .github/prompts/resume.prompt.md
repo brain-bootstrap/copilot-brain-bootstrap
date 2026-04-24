@@ -1,6 +1,6 @@
 ---
 description: 'Restore full session context. Reads todo.md, lessons.md, architecture.md, git log. Summarizes where we left off and next actions.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

@@ -1,6 +1,6 @@
 ---
 description: 'Caveman commit: think through what should be committed, stage selectively, write a great conventional commit message.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
   - read_file

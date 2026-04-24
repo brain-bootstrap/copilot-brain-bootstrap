@@ -1,6 +1,6 @@
 ---
 description: 'Run build. Read context/build.md for exact commands. Report pass/fail with logs.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

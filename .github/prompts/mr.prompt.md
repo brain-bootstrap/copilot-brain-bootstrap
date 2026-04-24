@@ -1,6 +1,6 @@
 ---
 description: 'Generate MR/PR description. Reads context/templates.md, runs git diff, verifies build+tests pass, saves to context/tasks/mr-description-*.md.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - create_file

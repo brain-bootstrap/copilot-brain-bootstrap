@@ -1,6 +1,6 @@
 ---
 description: 'Maintenance tasks: update configs, refresh dependencies, run audits, prune stale branches. Regular project hygiene.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

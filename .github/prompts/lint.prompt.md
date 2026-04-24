@@ -1,6 +1,6 @@
 ---
 description: 'Run lint + format checks. Read context/build.md for lint commands. Report violations. Auto-fix if requested.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

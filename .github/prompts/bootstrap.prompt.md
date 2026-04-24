@@ -1,6 +1,6 @@
 ---
 description: 'Autonomous bootstrap: detect project type, fill all {{PLACEHOLDERS}} in knowledge layer, generate architecture.md, build.md, and configure available plugins. Run once per project.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - replace_string_in_file

@@ -1,6 +1,6 @@
 ---
 description: 'Research a question about the codebase. Delegates exploration to the researcher agent, preserving main context. Returns structured findings: summary, evidence, data flow, pitfalls, related files.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - grep_search

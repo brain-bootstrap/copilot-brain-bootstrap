@@ -1,6 +1,6 @@
 ---
 description: 'Template for new prompts. Copy this file and fill in the frontmatter and content.'
-mode: agent
+agent: agent
 tools:
   - read_file
 argument-hint: '[argument hint here]'

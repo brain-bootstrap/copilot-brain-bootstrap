@@ -1,6 +1,6 @@
 ---
 description: 'MCP server management: list active servers, check status, add/remove MCP configurations.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - file_search

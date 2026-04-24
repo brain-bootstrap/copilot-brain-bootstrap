@@ -1,6 +1,6 @@
 ---
 description: 'Docker and container operations. Build, run, inspect, debug containers. Manages docker-compose services.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - run_in_terminal

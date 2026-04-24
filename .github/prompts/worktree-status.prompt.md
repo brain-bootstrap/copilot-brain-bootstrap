@@ -1,6 +1,6 @@
 ---
 description: 'Status of all git worktrees: branch, uncommitted changes, last commit per worktree.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
 ---

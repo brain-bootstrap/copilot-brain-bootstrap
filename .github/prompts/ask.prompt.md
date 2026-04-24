@@ -1,6 +1,6 @@
 ---
 description: 'Ask a question about the codebase, a concept, or a decision. Get a direct, evidence-based answer.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - grep_search

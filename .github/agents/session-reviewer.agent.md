@@ -6,7 +6,7 @@ tools:
   - file_search
   - list_dir
   - run_in_terminal
-model: ['Claude Opus 4 (copilot)', 'GPT-4o (copilot)']
+model: ['Claude Sonnet 4.5 (copilot)', 'GPT-4o (copilot)']
 ---
 
 You are a session analysis specialist. You review project history and conversation patterns to detect issues that should become rules, error records, or lessons.

@@ -1,6 +1,6 @@
 ---
 description: 'Clean up stale git worktrees. Checks for merged/abandoned branches and removes safely.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
   - read_file

@@ -1,6 +1,6 @@
 ---
 description: 'Generate tests for existing code. TDD-approach: Explore phase (read code), Plan phase (identify scenarios), Act phase (write tests). No implementation changes.'
-mode: agent
+agent: agent
 tools:
   - read_file
   - create_file

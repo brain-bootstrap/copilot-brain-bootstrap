@@ -2,11 +2,6 @@
 name: tdd
 description: 'Test-Driven Development skill. Automatically activates on test files. 3-phase protocol: Explore (understand existing tests), Plan (list scenarios), Act (write tests then implementation).'
 user-invocable: false
-paths:
-  - '**/*.test.{ts,js,py,rs,go}'
-  - '**/*.spec.{ts,js,py,rs,go}'
-  - '**/test_*.py'
-  - '**/*_test.go'
 ---
 
 # TDD Skill

@@ -1,6 +1,6 @@
 ---
 description: 'Update the code search index (CocoIndex or similar). Run after large refactors or when search results seem stale.'
-mode: agent
+agent: agent
 tools:
   - run_in_terminal
   - read_file
