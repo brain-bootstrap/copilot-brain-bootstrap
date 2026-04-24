@@ -109,7 +109,10 @@ fi
 
 # Check hook scripts are executable
 if [[ -d ".github/hooks/scripts" ]]; then
-  NOT_EXEC=$(find ".github/hooks/scripts" -name '*.sh' -not -executable 2>/dev/null | wc -l | tr -d ' ')
+  NOT_EXEC=0
+  while IFS= read -r _f; do
+    [[ -x "${_f}" ]] || NOT_EXEC=$((NOT_EXEC + 1))
+  done < <(find ".github/hooks/scripts" -name '*.sh' 2>/dev/null)
   if [[ "${NOT_EXEC}" -gt 0 ]]; then
     fail "${NOT_EXEC} hook script(s) not executable — run: chmod +x .github/hooks/scripts/*.sh"
   else
