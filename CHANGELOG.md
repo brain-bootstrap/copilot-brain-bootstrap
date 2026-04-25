@@ -5,6 +5,68 @@ All notable changes to Copilot Brain Bootstrap will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] — 2026-04-25 — Skills Parity & Scripts Layer
+
+### Added
+
+#### Skills — 31 new skills (18 → 49, full parity with Codex and Claude)
+
+- **`ask`** — route codebase questions to structural graph, semantic search, or risk analysis
+- **`bootstrap`** — auto-configure copilot-instructions.md and context/ knowledge docs for a new project
+- **`build`** — build the project and verify it compiles cleanly after changes
+- **`checkpoint`** — save session state before context gets full; write task state to context/tasks/todo.md
+- **`clean-worktrees`** — remove all git worktrees for merged branches; accepts --dry-run
+- **`cleanup`** — clean workspace: build artifacts, dependencies, caches, Docker volumes, or temp files
+- **`context`** — load all relevant context/ knowledge files for a domain area at session start
+- **`db`** — query the database: list schemas, tables, describe a table, or run SQL
+- **`debug`** — root cause analysis for bugs using 5-step investigation method
+- **`deps`** — manage dependencies and fix CVEs; check outdated packages, run security audit
+- **`diff`** — analyze branch diff against merge-base; stat overview, full diff, file list, commit list
+- **`docker`** — Docker workflow helpers: list containers, build, run, logs, compose up/down, prune
+- **`git`** — git workflow helpers: status, rebase, commit, amend, log, stash, branch management
+- **`health`** — verify Copilot configuration health with pass/warn/fail per component
+- **`lint`** — run the linter and formatter check before opening a PR
+- **`maintain`** — detect and fix stale context/*.md knowledge docs
+- **`mcp`** — manage MCP servers: list tools, check status, add a new server to mcp.json
+- **`migrate`** — run database or schema migrations: up, down, rollback, status, create new migration
+- **`mr`** — generate a PR/MR description after review passes
+- **`plan`** — plan a non-trivial task before implementing; writes checkable plan to context/tasks/todo.md
+- **`research`** — isolated codebase exploration that preserves main context; spawns explorer subagent
+- **`resume`** — resume previous session from context/tasks/todo.md
+- **`review`** — full 10-point expert code review; spawns reviewer subagent for isolation
+- **`serve`** — start service(s) locally for development; reads commands from context/build.md
+- **`squad-plan`** — generate parallel workstream plan for multi-agent Copilot work
+- **`status`** — project status dashboard: instructions budget, unfilled placeholders, hooks health
+- **`test`** — run the test suite and report results; reads test command from context/build.md
+- **`ticket`** — create a ticket/issue description with evidence-backed proof sections
+- **`update-code-index`** — scan codebase exports and generate CODE_INDEX.md organized by capability
+- **`worktree`** — manage git worktrees for parallel work on multiple branches simultaneously
+- **`worktree-status`** — show all active git worktrees with branch name, dirty/clean status, last commit
+
+#### Lifecycle Scripts — 9 new scripts (2 → 11, operational parity)
+
+- **`scripts/populate-templates.sh`** — fills `{{PLACEHOLDER}}` values in copilot-instructions.md and context/*.md using context/tasks/.discovery.env as source
+- **`scripts/canary-check.sh`** — fast health check: copilot-instructions.md exists, skills count ≥5, hooks executable, jq present
+- **`scripts/phase2-verify.sh`** — post-/bootstrap verification: all placeholders filled, context docs populated, skills accessible
+- **`scripts/dry-run.sh`** — dry run install.sh with --dry-run: report what would change without modifying anything
+- **`scripts/post-bootstrap-validate.sh`** — run after /bootstrap completes: verify no unfilled placeholders, validate context docs
+- **`scripts/portability-lint.sh`** — check shell scripts for portability issues: bashisms, pager triggers, interactive flags
+- **`scripts/migrate-tasks.sh`** — migrate task files from old context structure; archive old lessons
+- **`scripts/setup-plugins.sh`** — install/check MCP tool prerequisites (uvx, npx); report status per plugin
+- **`scripts/integration-test.sh`** — end-to-end: simulate bootstrap on tmp dir, verify all phases complete cleanly
+
+#### Bootstrap Templates
+
+- **`context/bootstrap/_copilot-instructions.md.template`** — canonical template for copilot-instructions.md with `{{DOMAIN_LOOKUP_TABLE}}` placeholder; used by populate-templates.sh during /bootstrap
+
+### Fixed
+
+- **`scripts/_platform.sh`** — `supports_unicode()` now detects `*utf8*` locale variant, macOS auto-pass (modern macOS Terminal always supports Unicode), and `WT_SESSION` Windows Terminal detection; aligns with Claude and Codex implementations
+
+### Changed
+
+- **`validate.sh`** — expanded from 181 lines (8 sections) to 330 lines (11 sections): added template integrity check, community files guard, hooks JSON syntax validation via jq, copilot-instructions.md size guard (4KB budget), lessons.md line count guard, and reference integrity check
+
 ## [1.0.0] — 2026-04-24
 
 ### Added

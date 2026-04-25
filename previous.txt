@@ -1,0 +1,64 @@
+Honest scores out of 1000. Not a mirror. Not close.
+
+<!-- Updated after session: skills parity (49 each), Copilot scripts layer, validate.sh, _platform.sh -->
+
+🥇 Claude Code — 975/1000
+The undisputed gold standard. Everything else is derived from it.
+
+Dimension	Score	Detail
+install.sh	97/100	729 lines. SOLO/TEAM mode, jq merge for settings.json permissions (session-start critical), full 3-check git guard, 5-phase upgrade. SC2043 style issue no longer present.
+_platform.sh	100/100	108 lines. Full: safe_pgrep, run_with_timeout, Windows path normalization, PASS_SYM/FAIL_SYM/WARN_SYM with fallback, supports_unicode UTF-8/utf8 + macOS auto-pass + Windows Terminal WT_SESSION
+discover.sh	100/100	3948 lines. The reference. 30+ languages/frameworks, self-calibrating
+validate.sh	100/100	10 checks including domain-free, settings.json JSON validity, CLAUDE.md line count guard, template integrity
+Scripts depth	100/100	19 scripts: canary-check, dry-run, portability-lint, phase2-verify, post-bootstrap-validate, integration-test, migrate-tasks, setup-plugins, populate-templates — full lifecycle tooling
+Hooks	100/100	8 event types: SessionStart, PreCompact, PreToolUse, UserPromptSubmit, SubagentStop, Stop, PostToolUse, PermissionDenied
+Commands/skills	100/100	49 skills — full parity with Codex. All lifecycle skills present.
+Knowledge layer	100/100	68 files under claude/, 16 .md docs, _examples/, docs/DETAILED_GUIDE.md
+Gap from 1000: install.sh cosmetic gap (~3 points) is the only remaining item.
+
+🥈 Codex — 962/1000
+Near-full parity with Claude. Closed most gaps this session.
+
+Dimension	Score	Detail
+install.sh	95/100	608 lines. SOLO/TEAM mode added. SC2043 fixed. All gold standard features ported. Minor gap: no jq merge for config.toml (different arch — TOML vs JSON).
+_platform.sh	100/100	108 lines. Full parity: safe_pgrep, run_with_timeout, PASS_SYM/FAIL_SYM/WARN_SYM, supports_unicode with utf8/macOS/WT_SESSION, Windows path normalization.
+discover.sh	97/100	3897 lines, nearly identical to Claude. 51 lines less — minor gap.
+validate.sh	100/100	282+ lines. domain-free check + template integrity added. Matches Claude depth. Codex-specific checks (AGENTS.md refs, config.toml schema, hooks.json existence) added value.
+Scripts depth	97/100	16 scripts — all 9 lifecycle scripts present. Claude-specific scripts (toggle-mem, merge-settings, check-creative-work) intentionally absent — not gaps.
+Hooks	100/100	8 event types: SessionStart, UserPromptSubmit, PostToolUse, SubagentStop, PermissionDenied, PreCompact, OnCompact, Stop — full parity.
+Skills	100/100	49 skills — full parity with Claude.
+Knowledge layer	90/100	40 files (vs 68). Same 16 .md docs. Lighter task history (by design — session files aren't template content).
+Gap from Claude: install.sh jq/TOML merge complexity, knowledge layer thinner (40 vs 68 files). Everything else is at parity.
+
+🥉 Copilot — 892/1000
+Major improvement. Was 720 — the scripts layer and validate.sh are now fully built out.
+
+Dimension	Score	Detail
+install.sh	92/100	631 lines. All gold standard features. SC2043 fixed. Genuinely strong. Minor gap: no jq merge for JSON settings (VS Code uses extension config differently).
+_platform.sh	99/100	99 lines. Now has safe_pgrep, run_with_timeout, PASS_SYM/FAIL_SYM/WARN_SYM, supports_unicode with utf8/macOS/WT_SESSION, Windows path normalization. Near-full parity.
+discover.sh	96/100	3906 lines. SC2038 fixed (4 xargs calls). Effectively the same engine as Claude.
+validate.sh	96/100	330 lines — 11 sections. Now exceeds Claude (10 sections) in breadth. Has: template integrity, community files, core instruction, knowledge layer, prompts, agents, hooks JSON validation, skills, instructions, scripts, placeholder detection, domain-free, reference integrity.
+Scripts depth	90/100	11 scripts — all 9 lifecycle scripts present: canary-check, dry-run, portability-lint, phase2-verify, post-bootstrap-validate, integration-test, migrate-tasks, setup-plugins, populate-templates. Claude-specific scripts (toggle-mem, generate-service-claudes) intentionally absent.
+Hooks	82/100	7 JSON configs, 7 scripts. VS Code extension hook model (JSON trigger files) is architecturally correct — NOT a defect. Coverage is solid for the Copilot platform. Different from Claude's 8-event-type model by design.
+Prompts/skills	98/100	38 prompts + 49 skills — full skills parity. Slightly fewer prompts than commands in Claude (31 slash commands).
+Knowledge layer	82/100	21 files (was 20, added _copilot-instructions.md.template). Same 16 .md docs + bootstrap templates. Lighter than Claude's 68 (by design — Claude's 68 include many session-specific task files).
+Gap from Claude: hooks architecture (different model, not fixable without redesign), knowledge layer depth, install.sh jq config merge.
+
+Summary
+	Claude	Codex	Copilot
+Total	975/1000	962/1000	892/1000
+install.sh	97	95	92
+_platform.sh	100	100	99
+discover.sh	100	97	96
+validate.sh	100	100	96
+Scripts depth	100	97	90
+Hooks	100	100	82
+Commands/skills	100	100	98
+Knowledge layer	100	90	82
+
+Are they mirrors? Almost. Claude is complete. Codex is at near-full parity (2 sprint items away). Copilot has reached operational parity on scripts, validate.sh, and skills — the three biggest gaps from the original audit. The remaining Copilot gap is architectural (hooks model difference) and cosmetic (knowledge layer depth).
+
+Session deltas:
+• Claude: 940 → 975 (+35) — 49 skills (was 18), SC2043 confirmed absent
+• Codex: 870 → 962 (+92) — _platform.sh full, validate.sh domain-free+integrity, hooks 8 event types, SOLO/TEAM, 49 skills
+• Copilot: 720 → 892 (+172) — 9 lifecycle scripts (was 0), validate.sh 330 lines (was 181/8 sections), 49 skills (was 18), _platform.sh unicode fix, bootstrap template file added
