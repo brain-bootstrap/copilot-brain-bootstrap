@@ -52,7 +52,7 @@ Here's the mental model:
             "Here's everything we've learned together"
 ```
 
-**38 slash commands. 7 lifecycle hooks. 5 AI agents. 18 skills. 9 instruction files. 5 MCP plugins. Zero setup friction.**
+**38 slash commands. 7 lifecycle hooks. 5 AI agents. 49 skills. 9 instruction files. 5 MCP plugins. Zero setup friction.**
 
 > 💡 Battle-tested. Works with **any language, any framework, any repo**.
 
@@ -158,7 +158,7 @@ Your AI shouldn't drown in 50K tokens when you ask it to fix a typo. So the syst
 | 🟡 **Auto-injected** | `todo.md` + `lessons.md` + git status — via SessionStart hook  | Every session start       | ~1-2K tokens |
 | 🔵 **On-demand**     | Full domain docs — architecture, build, auth, database         | When the task requires it |  ~1-2K each  |
 
-**Why this matters:** Copilot has a fixed context budget. Tier 1 uses ~4KB. Everything else loads only when needed, letting you have 18 skills + 38 prompts without burning your context window.
+**Why this matters:** Copilot has a fixed context budget. Tier 1 uses ~4KB. Everything else loads only when needed, letting you have 49 skills + 38 prompts without burning your context window.
 
 ### Hook Execution Flow
 
@@ -267,9 +267,9 @@ These files are **read by Copilot** on demand. Keep them accurate — they're th
 
 > 🛡️ **Hooks are not suggestions — they're enforcement.** A blocked action returns an error message explaining what to do instead.
 
-### 🎓 Skills — `.github/skills/` (18 dirs)
+### 🎓 Skills — `.github/skills/` (49 dirs)
 
-18 skills loaded on-demand when relevant. Mention a skill by name in chat to activate it:
+49 skills loaded on-demand when relevant. Mention a skill by name in chat to activate it:
 
 | Skill                   | Activates             | What it enforces                                   |
 | :---------------------- | :-------------------- | :------------------------------------------------- |

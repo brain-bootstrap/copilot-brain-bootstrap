@@ -23,6 +23,8 @@ target/
 dist/
 build/
 out/
+# Exception: Brain Bootstrap skill named 'build' must be tracked
+!.github/skills/build/
 
 # IDE
 .idea/

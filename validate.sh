@@ -63,11 +63,13 @@ if $IS_TEMPLATE; then
     fail "Template only has $_PH_COUNT placeholders (expected 20+) — likely corrupted"
   fi
   printf "\n${BOLD}[0b] Community files (template repo only)${RESET}\n"
-  for _cf in CONTRIBUTING.md .shellcheckrc \
-             ".github/PULL_REQUEST_TEMPLATE.md" \
+  for _cf in ".github/PULL_REQUEST_TEMPLATE.md" \
              ".github/ISSUE_TEMPLATE/bug-report.yml" \
              ".github/workflows/ci.yml"; do
     [ -f "$_cf" ] && ok "$_cf" || fail "MISSING: $_cf"
+  done
+  for _cf in CONTRIBUTING.md .shellcheckrc; do
+    [ -f "$_cf" ] && ok "$_cf" || warn "MISSING: $_cf (template admin file — optional in user repos)"
   done
   printf "\n"
 fi

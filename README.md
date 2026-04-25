@@ -33,7 +33,7 @@
 
 ## 💡 What This Is
 
-**Brain Bootstrap is a project configuration template — a ready-made `.github/` folder you install once into your repo. It gives GitHub Copilot persistent memory, enforced guardrails, and 38 ready-to-use prompts so your AI assistant finally knows your project and stops repeating the same mistakes every session.**
+**Brain Bootstrap is a project configuration template — a ready-made `.github/` folder you install once into your repo. It gives GitHub Copilot persistent memory, enforced guardrails, and 38 ready-to-use prompts + 49 skills so your AI assistant finally knows your project and stops repeating the same mistakes every session.**
 
 ---
 
@@ -51,7 +51,7 @@ Copilot is stateless by design — each session starts blank. So you end up re-e
 
 - **Persistent memory** — conventions, architecture, past mistakes embedded once and never forgotten
 - **Enforced rules** — 7 lifecycle hooks that block violations _before_ they run, no AI judgment involved
-- **Ready-to-use workflows** — 38 prompt files, 18 skills, 5 specialist agents covering every common task
+- **Ready-to-use workflows** — 38 prompt files, 49 skills, 5 specialist agents covering every common task
 - **Self-updating knowledge** — the knowledge layer grows with your codebase, session by session
 
 **Install once. Correct once. It never happens again.**
@@ -136,7 +136,7 @@ Confirms all hooks, agents, skills, and instructions are wired up correctly. Ret
 | :----------------------- | :---: | :------------------------------------------------------------------ |
 | 📋 **Prompts** (`/name`) |  38   | Slash commands for every task in the dev lifecycle                  |
 | 🤖 **Agents** (`@name`)  |   5   | Specialized expert agents for review, research, security            |
-| 🎓 **Skills**            |  18   | Auto-activating or on-demand specialist behaviors                   |
+| 🎓 **Skills**            |  49   | Auto-activating or on-demand specialist behaviors                   |
 | 🪝 **Hooks**             |   7   | Lifecycle automation: session context, safety gates, quality checks |
 | 📖 **Instructions**      |   9   | Path-specific coding standards (TS, React, Node.js, Python, etc.)   |
 | 📚 **Knowledge docs**    |   9   | Persistent project memory in `context/`                             |
@@ -172,7 +172,7 @@ your-repo/
 │   ├── review.prompt.md                  ← /review — 10-point code review
 │   ├── mr.prompt.md                      ← /mr — MR description after build passes
 │   └── ...33 more
-├── 🎓 .github/skills/                    ← 18 specialist behaviors
+├── 🎓 .github/skills/                    ← 49 specialist behaviors
 │   ├── tdd/SKILL.md                      ← Auto-activates on test files
 │   ├── root-cause-trace/                 ← Iron Law: no fix without root cause
 │   ├── brainstorming/                    ← Hard gate before any code
@@ -304,7 +304,7 @@ Copy `.copilot-instructions.local.md.example` → `.github/instructions/personal
 
 ## 📋 The Prompts
 
-Type `/` in Copilot Chat to see all 38 available prompts.
+Type `/` in Copilot Chat to see all 38 available prompts. Type `@` to access 5 specialist agents.
 
 | Prompt            | What it does                                                     |
 | :---------------- | :--------------------------------------------------------------- |
@@ -413,7 +413,7 @@ Not ready to share? Add `context/` to `.gitignore` and keep it local — the `.g
 <details>
 <summary><strong>⚖️ How is this different from just writing a good copilot-instructions.md?</strong></summary>
 
-Scope. A hand-written `copilot-instructions.md` is a flat instruction file — the AI reads it _if it feels like it_. Brain is a **multi-layered enforcement architecture** with lifecycle hooks that block before execution, agents that run in isolated contexts, 18 skills that activate per task, and session memory that persists across restarts.
+Scope. A hand-written `copilot-instructions.md` is a flat instruction file — the AI reads it _if it feels like it_. Brain is a **multi-layered enforcement architecture** with lifecycle hooks that block before execution, agents that run in isolated contexts, 49 skills that activate per task, and session memory that persists across restarts.
 
 It's the difference between a sticky note and an operating system.
 
