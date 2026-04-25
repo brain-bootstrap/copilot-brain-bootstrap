@@ -33,7 +33,7 @@
 
 ## 💡 What This Is
 
-**Brain Bootstrap is a project configuration template — a ready-made `.github/` folder you install once into your repo. It gives GitHub Copilot persistent memory, enforced guardrails, and 38 ready-to-use prompts + 49 skills so your AI assistant finally knows your project and stops repeating the same mistakes every session.**
+**Brain Bootstrap is not a template to copy and forget. It's a behavioral enforcement layer for GitHub Copilot — runtime hooks that block violations before they execute, a persistent knowledge base that survives every session reset, and 38 prompts + 49 skills purpose-built for recurring engineering tasks. Install it once. GitHub Copilot stops guessing and starts knowing.**
 
 ---
 
